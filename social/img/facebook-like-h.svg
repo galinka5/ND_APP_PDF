@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <style>
+            .cls-11{fill:#4267b2}.cls-21{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <g id="Group_6740" data-name="Group 6740" transform="translate(-5072.443 -15567.443)">
+        <circle id="Ellipse_628" cx="10" cy="10" r="10" class="cls-11" data-name="Ellipse 628" transform="translate(5072.443 15567.443)"/>
+        <path id="thumbs-up_1_" d="M7.59 5.261V3.4A1.4 1.4 0 0 0 6.192 2L4.329 6.192v5.124h5.255a.932.932 0 0 0 .932-.792l.643-4.192a.932.932 0 0 0-.932-1.071zm-3.261 6.055h-1.4A.932.932 0 0 1 2 10.385V7.124a.932.932 0 0 1 .932-.932h1.4" class="cls-21" data-name="thumbs-up (1)" transform="translate(5075.657 15570.043)"/>
+    </g>
+</svg>

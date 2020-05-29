@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Social</title>
+    <style>
+        @font-face {
+            font-family: HurmeGeometricSans1-Bold;
+            font-style: normal;
+            font-weight: 700;
+            src: local("HurmeGeometricSans1-Bold"), local("HurmeGeometricSans1-Bold"), url("fonts/Hurme-HurmeGeometricSans1-Bold.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans2-Bold;
+            font-style: normal;
+            font-weight: 700;
+            src: local("HurmeGeometricSans2-Bold"), local("HurmeGeometricSans2-Bold"), url("fonts/Hurme-HurmeGeometricSans2-Bold.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans2;
+            font-style: normal;
+            font-weight: 700;
+            src: local("HurmeGeometricSans2-Bold"), local("HurmeGeometricSans2-Bold"), url("fonts/Hurme-HurmeGeometricSans2-Bold.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans2;
+            font-style: normal;
+            font-weight: 300;
+            src: local("HurmeGeometricSans2-Regular"), local("HurmeGeometricSans2-Regular"), url("fonts/Hurme-HurmeGeometricSans2-Regular.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans1;
+            font-style: normal;
+            font-weight: 400;
+            src: local("HurmeGeometricSans1"), local("HurmeGeometricSans1"), url("fonts/Hurme-HurmeGeometricSans1-Regular.otf") format("opentype");
+        }
+
+
+        .title-wrapper {
+            padding: 45px 48px 32px 45px;
+            background-color: #fff;
+            border-bottom: 1px solid #f0f4f7;
+        }
+
+        .title-wrapper .details-title-block {
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .title-wrapper .image-wrapper {
+            overflow: hidden;
+            max-height: 135px;
+            border-radius: 2px;
+        }
+
+        .title-wrapper .details-title-info {
+            margin-left: 45px;
+            margin-right: 45px;
+            flex-grow: 2;
+        }
+
+        .details-title-info .details-captured {
+            font-family: HurmeGeometricSans2;
+            font-size: 22px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: .7px;
+            text-align: left;
+            color: #a0acb0;
+        }
+
+        .details-title-info .details-header {
+            margin: 0;
+            font-family: HurmeGeometricSans2;
+            font-size: 42px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.37;
+            letter-spacing: 1.12px;
+            text-align: left;
+            color: #13224b;
+        }
+
+        #detailsTemplate {
+            background-color: #fff;
+            height: fit-content;
+            box-shadow: none;
+            border: solid 1px #e7e8ec;
+            border-radius: 0;
+            padding: 45px;
+            font-family: HurmeGeometricSans2;
+            font-size: 32px;
+        }
+
+        .details-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .details-col {
+            margin-bottom: 66px;
+        }
+
+        .details-card {
+            background-color: #fff;
+            width: 1000px;
+            border-radius: 4px;
+            margin-top: 15px;
+            border: solid 1px #e0e0e0;
+            padding: 2px 0 30px;
+            box-shadow: 0 7px 5px 0 rgba(72, 89, 133, .08);
+        }
+
+        .details-card-block {
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-between;
+            -webkit-justify-content: space-between;
+            font-size: 22px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.14;
+            letter-spacing: .7px;
+            color: #485985;
+            padding: 0 27px;
+        }
+
+        .details-card .details-card-block-left {
+            text-align: left;
+        }
+
+        .details-card .header-title,
+        .details-card .header-title-small {
+            font-family: HurmeGeometricSans2;
+            font-size: 40px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.14;
+            letter-spacing: .7px;
+            color: rgba(72, 89, 133, .7);
+            padding-top: 27px;
+        }
+
+        .details-card .details-card-block-left .header-data {
+            margin-top: 9px;
+        }
+
+        .has-tooltip {
+            position: relative;
+        }
+
+        .details-card .header-data .big-value {
+            font-family: HurmeGeometricSans2;
+            font-size: 88px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: .72px;
+            text-align: left;
+            color: #13224b;
+            vertical-align: top;
+        }
+
+        .details-card .change-value {
+            font-family: HurmeGeometricSans2;
+            font-size: 40px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: 1.12px;
+            text-align: left;
+            vertical-align: top;
+            color: #485985;
+        }
+
+        .details-card .details-card-block-right {
+            text-align: right;
+        }
+
+        .details-card .details-card-block-right .header-data {
+            padding-top: 9px;
+        }
+
+        .details-card .small-value {
+            font-family: HurmeGeometricSans2;
+            font-size: 48px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: normal;
+            text-align: right;
+            color: #13224b;
+        }
+
+        #detailsTemplate .details-card-chart-big {
+            width: 100%;
+        }
+
+        #detailsTemplate .charts-cell-chart-div {
+            position: inherit;
+            width: initial;
+            height: 100%;
+            margin-left: 0;
+        }
+
+        .details-card .mid-value {
+            font-size: 68px;
+            font-family: HurmeGeometricSans2;
+            font-weight: bold;
+            text-align: left;
+            letter-spacing: normal;
+            color: #13224b;
+        }
+
+        .details-card-block.separated {
+            border-top: solid 1px #e0e0e0;
+        }
+
+        .details-card-block.separated {
+            border-top: solid 1px #e0e0e0;
+        }
+
+        .details-card-block .change-value-black {
+            font-family: HurmeGeometricSans2;
+            font-size: 34px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .98px;
+            color: #13224b;
+            text-align: left;
+            padding-left: 10px;
+            margin-top: 4px;
+        }
+
+        svg.negative-trend,
+        svg.positive-trend {
+            width: 28px;
+            height: 16px;
+        }
+
+        .positive svg.negative-trend {
+            display: none;
+        }
+
+        .negative svg.positive-trend {
+            display: none;
+        }
+
+        .details-card-chart-xtitle {
+            font-family: HurmeGeometricSans2;
+            font-size: 24px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .7px;
+            text-align: left;
+            color: #485985;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .details-card-chart-xtitle p {
+            display: inline;
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .details-card .header-title-small {
+            text-align: left;
+            padding-bottom: 6px;
+        }
+
+        .details-card .details-card-block-right.bordered {
+            border-left: solid 1px #e0e0e0;
+            padding-left: 16px;
+            width: 50%;
+        }
+
+        .details-card .details-card-block-right {
+            text-align: right;
+        }
+
+        #twSubscribers .header-title-small:after {
+            content: "";
+            background-color: #f05f22;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            border-radius: 50%;
+            margin: 14px 14px;
+        }
+
+        #twComments .header-title-small:after {
+            content: "";
+            background-color: #167cf4;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            border-radius: 50%;
+            margin: 14px 14px;
+        }
+
+        .details-card-table-header {
+            font-family: HurmeGeometricSans2;
+            font-size: 34px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.71;
+            letter-spacing: .42px;
+            text-align: left;
+            color: #1f2f59;
+            padding: 0 36px 20px;
+        }
+
+        .details-card-table {
+            width: 900px;
+            margin: 0 36px 20px;
+        }
+
+        .details-card-table tr:nth-child(odd) {
+            background-color: #fafbfc;
+        }
+
+        .details-card-table td {
+            border-bottom: 1px solid rgba(11, 21, 39, .12);
+            vertical-align: top;
+        }
+
+        .details-card-table td {
+            font-family: HurmeGeometricSans2;
+            font-size: 34px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .7px;
+            text-align: left;
+            color: #485985;
+            padding: 20px;
+        }
+
+        .details-card-table tr td:nth-child(2) {
+            font-family: HurmeGeometricSans2;
+            font-size: 44px;
+            font-weight: bold;
+            letter-spacing: .72px;
+            text-align: right;
+            color: #13224b;
+        }
+
+        .details-card-table td.change-value-black {
+            font-family: HurmeGeometricSans2;
+            font-size: 40px;
+            font-weight: bold;
+            letter-spacing: 1.12px;
+            color: #485985;
+            text-align: right;
+            padding-right: 25px;
+        }
+
+        .details-card-statistic {
+            text-align: left;
+            border-top: 1px solid #e1e2e4;
+            padding-top: 20px;
+            margin: 0 40px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="title-wrapper">
+        <div class="details-title-block">
+            <div class="image-wrapper"><img width="216" src="test/img.jpg"></div>
+            <div class="details-title-info">
+                <span class="details-captured">3/2/2019 12:00:00 AM</span>
+                <h1 class="details-header">Bridge to Scotland 'about as feasible as building a bridge to the moon'</h1>
+            </div>
+        </div>
+    </div>
+    <div id="detailsTemplate">
+        <div class="period-block">
+            <span>Social Media Details</span>
+            <span class="period-value">05/19/2020 - 05/29/2020</span>
+        </div>
+        <div class="details-container details-container-wrap">
+            <div class="details-col">
+                <div class="details-card details-facebook">
+                    <div class="details-card-block">
+                        <div class="details-card-block-left">
+                            <div class="header-title has-tooltip">Facebook Shares</div>
+                            <div class="header-data">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 32 32">
+                                    <defs>
+                                        <style>
+                                            .cls-10 {
+                                                fill: #4267b2
+                                            }
+
+                                        </style>
+                                    </defs>
+                                    <path id="facebook" d="M16 0a16 16 0 1 0 16 16A16.018 16.018 0 0 0 16 0zm3.979 16.563h-2.6v9.278h-3.861v-9.278h-1.833v-3.279h1.834v-2.12a3.617 3.617 0 0 1 3.893-3.893l2.858.011v3.184h-2.076a.786.786 0 0 0-.818.893v1.933h2.939z" class="cls-10" />
+                                </svg>
+
+                                <span class="big-value" id="fbShares">180</span>
+                                <span class="change-value" data-change-value="1.3" style="color: rgb(91, 188, 46);">+1.3%</span>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right">
+                            <div class="header-title">Brand Page Likes</div>
+                            <div class="header-data">
+                                <span class="small-value" id="fbBPLikes">546</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-chart-big social-chart-card" id="facebookSharesChart" data-chart="22,54,65,68,72" data-chart-height="70" data-chart-type="area" data-positive="True">
+                        <div class="charts-cell-chart-div">
+                            <div class="charts-cell-chart" id="facebookSharesChart_child" data-highcharts-chart="10">
+                                <div id="highcharts-bucs6j8-50" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 1000px; height: 200px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;">
+                                    <svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1000" height="200" viewBox="0 0 363 70">
+                                        <desc>Created with Highstock 6.0.3</desc>
+                                        <defs>
+                                            <clipPath id="highcharts-bucs6j8-51">
+                                                <rect x="0" y="0" width="363" height="70" fill="none"></rect>
+                                            </clipPath>
+                                            <clipPath id="highcharts-bucs6j8-53">
+                                                <rect x="0" y="0" width="363" height="70" fill="none"></rect>
+                                            </clipPath>
+                                            <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-54">
+                                                <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <rect fill="transparent" class="highcharts-background" x="0" y="0" width="363" height="70" rx="0" ry="0"></rect>
+                                        <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="363" height="70"></rect>
+                                        <g class="highcharts-pane-group"></g>
+                                        <g class="highcharts-grid highcharts-xaxis-grid ">
+                                            <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 90.5 0 L 90.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 181.5 0 L 181.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 271.5 0 L 271.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 362.5 0 L 362.5 70" opacity="1"></path>
+                                        </g>
+                                        <g class="highcharts-grid highcharts-yaxis-grid ">
+                                            <path fill="none" class="highcharts-grid-line" d="M 0 70.5 L 363 70.5" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 363 0.5" opacity="1"></path>
+                                        </g>
+                                        <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="363" height="70"></rect>
+                                        <g class="highcharts-axis highcharts-xaxis ">
+                                            <path fill="none" class="highcharts-axis-line" d="M 0 70 L 363 70"></path>
+                                        </g>
+                                        <g class="highcharts-axis highcharts-yaxis ">
+                                            <path fill="none" class="highcharts-axis-line" d="M 363 0 L 363 70"></path>
+                                        </g>
+                                        <path fill="none" class="highcharts-crosshair highcharts-crosshair-thin undefined" stroke="#cccccc" stroke-width="1" style="pointer-events:none;" visibility="hidden" d="M 181.5 0 L 181.5 70"></path>
+                                        <g class="highcharts-series-group">
+                                            <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-53)">
+                                                <path fill="url(#highcharts-bucs6j8-54)" d="M 0 61.83333333333333 L 90.75 24.5 L 181.5 11.666666666666664 L 272.25 8.166666666666664 L 363 3.5 L 363 70 L 272.25 70 L 181.5 70 L 90.75 70 L 0 70" class="highcharts-area"></path>
+                                                <path fill="none" d="M 0 61.83333333333333 L 90.75 24.5 L 181.5 11.666666666666664 L 272.25 8.166666666666664 L 363 3.5" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                <path fill="none" d="M -10 61.83333333333333 L 0 61.83333333333333 L 90.75 24.5 L 181.5 11.666666666666664 L 272.25 8.166666666666664 L 363 3.5 L 373 3.5" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                            </g>
+                                            <g class="highcharts-markers highcharts-series-0 highcharts-area-series highcharts-tracker " transform="translate(0,0) scale(1 1)">
+                                                <path fill="#6fc9ab" d="M 181 11.666666666666664 A 0 0 0 1 1 181 11.666666666666664 Z" class="highcharts-halo highcharts-color-undefined" fill-opacity="0.25"></path>
+                                                <path fill="#6fc9ab" d="M 185 11.666666666666664 A 4 4 0 1 1 184.99999800000018 11.662666667333328 Z" stroke="#ffffff" stroke-width="1" visibility="hidden"></path>
+                                            </g>
+                                        </g><text x="182" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="182" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                        <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="13.2734375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>1. Jan</tspan>
+                                            </text><text x="90.75" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:00.001</tspan>
+                                            </text><text x="181.5" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:00.002</tspan>
+                                            </text><text x="272.25" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:00.003</tspan>
+                                            </text><text x="340.3125" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:0…</tspan>
+                                                <title>00:00:00.004</title>
+                                            </text></g>
+                                        <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                        <g class="highcharts-tooltip" opacity="0" visibility="visible" y="-9999">
+                                            <g class="highcharts-label highcharts-tooltip-box highcharts-color-none" transform="translate(90,0)" style="cursor:default;pointer-events:none;white-space:nowrap;">
+                                                <path fill="none" class="highcharts-label-box" d="M 3.5 0.5 L 71.5 0.5 C 74.5 0.5 74.5 0.5 74.5 3.5 L 74.5 5.666666666666664 80.5 11.666666666666664 74.5 17.666666666666664 74.5 27.5 C 74.5 30.5 74.5 30.5 71.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-width="5" isShadow="true" stroke-opacity="0.049999999999999996" transform="translate(1, 1)"></path>
+                                                <path fill="none" class="highcharts-label-box" d="M 3.5 0.5 L 71.5 0.5 C 74.5 0.5 74.5 0.5 74.5 3.5 L 74.5 5.666666666666664 80.5 11.666666666666664 74.5 17.666666666666664 74.5 27.5 C 74.5 30.5 74.5 30.5 71.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-width="3" isShadow="true" stroke-opacity="0.09999999999999999" transform="translate(1, 1)"></path>
+                                                <path fill="none" class="highcharts-label-box" d="M 3.5 0.5 L 71.5 0.5 C 74.5 0.5 74.5 0.5 74.5 3.5 L 74.5 5.666666666666664 80.5 11.666666666666664 74.5 17.666666666666664 74.5 27.5 C 74.5 30.5 74.5 30.5 71.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-width="1" isShadow="true" stroke-opacity="0.15" transform="translate(1, 1)"></path>
+                                                <path fill="rgba(247,247,247,0.85)" class="highcharts-label-box" d="M 3.5 0.5 L 71.5 0.5 C 74.5 0.5 74.5 0.5 74.5 3.5 L 74.5 5.666666666666664 80.5 11.666666666666664 74.5 17.666666666666664 74.5 27.5 C 74.5 30.5 74.5 30.5 71.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#6fc9ab" stroke-width="1"></path><text x="8" y="20" style="font-size:12px;color:#333333;fill:#333333;">
+                                                    <tspan>Value is </tspan>
+                                                    <tspan style="font-weight:bold" dx="0">65</tspan>
+                                                </text>
+                                            </g>
+                                        </g>
+                                    </svg></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-block">
+                        <div class="details-card-block-left">
+                            <div class="header-title"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 20 20" style="vertical-align:middle">
+                                    <defs>
+                                        <style>
+                                            .cls-11 {
+                                                fill: #4267b2
+                                            }
+
+                                            .cls-21 {
+                                                fill: none;
+                                                stroke: #fff;
+                                                stroke-linecap: round;
+                                                stroke-linejoin: round
+                                            }
+
+                                        </style>
+                                    </defs>
+                                    <g id="Group_6740" data-name="Group 6740" transform="translate(-5072.443 -15567.443)">
+                                        <circle id="Ellipse_628" cx="10" cy="10" r="10" class="cls-11" data-name="Ellipse 628" transform="translate(5072.443 15567.443)" />
+                                        <path id="thumbs-up_1_" d="M7.59 5.261V3.4A1.4 1.4 0 0 0 6.192 2L4.329 6.192v5.124h5.255a.932.932 0 0 0 .932-.792l.643-4.192a.932.932 0 0 0-.932-1.071zm-3.261 6.055h-1.4A.932.932 0 0 1 2 10.385V7.124a.932.932 0 0 1 .932-.932h1.4" class="cls-21" data-name="thumbs-up (1)" transform="translate(5075.657 15570.043)" />
+                                    </g>
+                                </svg>
+                                <span>Likes</span>
+                            </div>
+                            <div class="header-data simple-data">
+                                <span class="big-value" id="fbLikes">22</span>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right">
+                            <div class="change-value" id="fbLikesChange" data-change-value="1.2" style="color: rgb(91, 188, 46);">+1.2%</div>
+                        </div>
+                    </div>
+                    <div class="details-card-chart-big social-chart-card" id="facebookLikesChart" data-chart="12,23,54,66,77" data-chart-height="70" data-chart-type="area" data-positive="True">
+                        <div class="charts-cell-chart-div">
+                            <div class="charts-cell-chart" id="facebookLikesChart_child" data-highcharts-chart="11">
+                                <div id="highcharts-bucs6j8-55" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 1000px; height: 200px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;">
+                                    <svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1000" height="200" viewBox="0 0 326 70">
+                                        <desc>Created with Highstock 6.0.3</desc>
+                                        <defs>
+                                            <clipPath id="highcharts-bucs6j8-56">
+                                                <rect x="0" y="0" width="326" height="70" fill="none"></rect>
+                                            </clipPath>
+                                            <clipPath id="highcharts-bucs6j8-58">
+                                                <rect x="0" y="0" width="326" height="70" fill="none"></rect>
+                                            </clipPath>
+                                            <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-59">
+                                                <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <rect fill="transparent" class="highcharts-background" x="0" y="0" width="326" height="70" rx="0" ry="0"></rect>
+                                        <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="326" height="70"></rect>
+                                        <g class="highcharts-pane-group"></g>
+                                        <g class="highcharts-grid highcharts-xaxis-grid ">
+                                            <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 81.5 0 L 81.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 162.5 0 L 162.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 244.5 0 L 244.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 325.5 0 L 325.5 70" opacity="1"></path>
+                                        </g>
+                                        <g class="highcharts-grid highcharts-yaxis-grid ">
+                                            <path fill="none" class="highcharts-grid-line" d="M 0 70.5 L 326 70.5" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 326 0.5" opacity="1"></path>
+                                        </g>
+                                        <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="326" height="70"></rect>
+                                        <g class="highcharts-axis highcharts-xaxis ">
+                                            <path fill="none" class="highcharts-axis-line" d="M 0 70 L 326 70"></path>
+                                        </g>
+                                        <g class="highcharts-axis highcharts-yaxis ">
+                                            <path fill="none" class="highcharts-axis-line" d="M 326 0 L 326 70"></path>
+                                        </g>
+                                        <g class="highcharts-series-group">
+                                            <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-58)">
+                                                <path fill="url(#highcharts-bucs6j8-59)" d="M 0 59.5 L 81.5 49.875 L 163 22.75 L 244.5 12.25 L 326 2.625 L 326 70 L 244.5 70 L 163 70 L 81.5 70 L 0 70" class="highcharts-area"></path>
+                                                <path fill="none" d="M 0 59.5 L 81.5 49.875 L 163 22.75 L 244.5 12.25 L 326 2.625" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                <path fill="none" d="M -10 59.5 L 0 59.5 L 81.5 49.875 L 163 22.75 L 244.5 12.25 L 326 2.625 L 336 2.625" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                            </g>
+                                            <g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(0,0) scale(1 1)"></g>
+                                        </g><text x="163" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="163" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                        <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="13.2734375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>1. Jan</tspan>
+                                            </text><text x="81.5" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:00.001</tspan>
+                                            </text><text x="163" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:00.002</tspan>
+                                            </text><text x="244.5" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:00.003</tspan>
+                                            </text><text x="305.625" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:…</tspan>
+                                                <title>00:00:00.004</title>
+                                            </text></g>
+                                        <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                    </svg></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator-line">
+                        <hr>
+                    </div>
+                    <div class="details-card-block" id="fbComments">
+                        <div class="details-card-block-left">
+                            <div class="header-title">Comments</div>
+                            <div class="header-data">
+                                <span class="mid-value">150</span>
+                                <span class="change-value" data-change-value="1.7" style="color: rgb(91, 188, 46);">+1.7%</span>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right">
+                            <div class="details-card-chart-small social-chart-card" id="facebookCommentsChart" data-chart="11,65,54,77,84" data-chart-height="150" data-chart-type="area" data-positive="True">
+                                <div class="charts-cell-chart-div">
+                                    <div class="charts-cell-chart" id="facebookCommentsChart_child" data-highcharts-chart="12">
+                                        <div id="highcharts-bucs6j8-60" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 450px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;">
+                                            <svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="450" height="150" viewBox="0 0 170 40">
+                                                <desc>Created with Highstock 6.0.3</desc>
+                                                <defs>
+                                                    <clipPath id="highcharts-bucs6j8-61">
+                                                        <rect x="0" y="0" width="170" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <clipPath id="highcharts-bucs6j8-63">
+                                                        <rect x="0" y="0" width="170" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-64">
+                                                        <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                        <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <rect fill="transparent" class="highcharts-background" x="0" y="0" width="170" height="40" rx="0" ry="0"></rect>
+                                                <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="170" height="40"></rect>
+                                                <g class="highcharts-pane-group"></g>
+                                                <g class="highcharts-grid highcharts-xaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 84.5 0 L 84.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 169.5 0 L 169.5 40" opacity="1"></path>
+                                                </g>
+                                                <g class="highcharts-grid highcharts-yaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 40.5 L 170 40.5" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 170 0.5" opacity="1"></path>
+                                                </g>
+                                                <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="170" height="40"></rect>
+                                                <g class="highcharts-axis highcharts-xaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 0 40 L 170 40"></path>
+                                                </g>
+                                                <g class="highcharts-axis highcharts-yaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 170 0 L 170 40"></path>
+                                                </g>
+                                                <g class="highcharts-series-group">
+                                                    <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-63)">
+                                                        <path fill="url(#highcharts-bucs6j8-64)" d="M 0 37.25 L 42.5 23.75 L 85 26.5 L 127.5 20.75 L 170 19 L 170 40 L 127.5 40 L 85 40 L 42.5 40 L 0 40" class="highcharts-area"></path>
+                                                        <path fill="none" d="M 0 37.25 L 42.5 23.75 L 85 26.5 L 127.5 20.75 L 170 19" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path fill="none" d="M -10 37.25 L 0 37.25 L 42.5 23.75 L 85 26.5 L 127.5 20.75 L 170 19 L 180 19" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                                    </g>
+                                                    <g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(0,0) scale(1 1)"></g>
+                                                </g><text x="85" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="85" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                                <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="15.4609375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>1. Jan</tspan>
+                                                    </text><text x="85" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00:00.002</tspan>
+                                                    </text><text x="148.75" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00…</tspan>
+                                                        <title>00:00:00.004</title>
+                                                    </text></g>
+                                                <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator-line">
+                        <hr>
+                    </div>
+                    <div class="details-card-block" id="fbEngagement">
+                        <div class="details-card-block-left">
+                            <div class="header-title">Engaged User</div>
+                            <div class="header-data">
+                                <span class="mid-value">248</span>
+                                <span class="change-value" data-change-value="1.22" style="color: rgb(91, 188, 46);">+1.22%</span>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right">
+                            <div class="details-card-chart-small social-chart-card" id="facebookEngagedChart" data-chart="15,47,74,89,92" data-chart-height="150" data-chart-type="area" data-positive="True">
+                                <div class="charts-cell-chart-div">
+                                    <div class="charts-cell-chart" id="facebookEngagedChart_child" data-highcharts-chart="13">
+                                        <div id="highcharts-bucs6j8-65" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 450px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;">
+                                            <svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="450" height="150" viewBox="0 0 170 40">
+                                                <desc>Created with Highstock 6.0.3</desc>
+                                                <defs>
+                                                    <clipPath id="highcharts-bucs6j8-66">
+                                                        <rect x="0" y="0" width="170" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <clipPath id="highcharts-bucs6j8-68">
+                                                        <rect x="0" y="0" width="170" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-69">
+                                                        <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                        <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <rect fill="transparent" class="highcharts-background" x="0" y="0" width="170" height="40" rx="0" ry="0"></rect>
+                                                <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="170" height="40"></rect>
+                                                <g class="highcharts-pane-group"></g>
+                                                <g class="highcharts-grid highcharts-xaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 84.5 0 L 84.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 169.5 0 L 169.5 40" opacity="1"></path>
+                                                </g>
+                                                <g class="highcharts-grid highcharts-yaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 40.5 L 170 40.5" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 170 0.5" opacity="1"></path>
+                                                </g>
+                                                <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="170" height="40"></rect>
+                                                <g class="highcharts-axis highcharts-xaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 0 40 L 170 40"></path>
+                                                </g>
+                                                <g class="highcharts-axis highcharts-yaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 170 0 L 170 40"></path>
+                                                </g>
+                                                <g class="highcharts-series-group">
+                                                    <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-68)">
+                                                        <path fill="url(#highcharts-bucs6j8-69)" d="M 0 36.25 L 42.5 28.25 L 85 21.5 L 127.5 17.75 L 170 17 L 170 40 L 127.5 40 L 85 40 L 42.5 40 L 0 40" class="highcharts-area"></path>
+                                                        <path fill="none" d="M 0 36.25 L 42.5 28.25 L 85 21.5 L 127.5 17.75 L 170 17" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path fill="none" d="M -10 36.25 L 0 36.25 L 42.5 28.25 L 85 21.5 L 127.5 17.75 L 170 17 L 180 17" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                                    </g>
+                                                    <g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(0,0) scale(1 1)"></g>
+                                                </g><text x="85" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="85" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                                <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="15.4609375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>1. Jan</tspan>
+                                                    </text><text x="85" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00:00.002</tspan>
+                                                    </text><text x="148.75" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00…</tspan>
+                                                        <title>00:00:00.004</title>
+                                                    </text></g>
+                                                <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator-line">
+                        <hr>
+                    </div>
+                    <div class="details-card-block" id="fbImpression">
+                        <div class="details-card-block-left">
+                            <div class="header-title">Page Impression</div>
+                            <div class="header-data">
+                                <span class="mid-value">468</span>
+                                <span class="change-value" data-change-value="0" style="color: rgb(91, 188, 46);">+0%</span>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right">
+                            <div class="details-card-chart-small social-chart-card" id="facebookImpressionChart" data-chart="185,194,205" data-chart-height="150" data-chart-type="area" data-positive="True">
+                                <div class="charts-cell-chart-div">
+                                    <div class="charts-cell-chart" id="facebookImpressionChart_child" data-highcharts-chart="14">
+                                        <div id="highcharts-bucs6j8-70" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 450px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="450" height="150" viewBox="0 0 170 40">
+                                                <desc>Created with Highstock 6.0.3</desc>
+                                                <defs>
+                                                    <clipPath id="highcharts-bucs6j8-71">
+                                                        <rect x="0" y="0" width="170" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <clipPath id="highcharts-bucs6j8-73">
+                                                        <rect x="0" y="0" width="170" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-74">
+                                                        <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                        <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <rect fill="transparent" class="highcharts-background" x="0" y="0" width="170" height="40" rx="0" ry="0"></rect>
+                                                <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="170" height="40"></rect>
+                                                <g class="highcharts-pane-group"></g>
+                                                <g class="highcharts-grid highcharts-xaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 84.5 0 L 84.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 169.5 0 L 169.5 40" opacity="1"></path>
+                                                </g>
+                                                <g class="highcharts-grid highcharts-yaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 40.5 L 170 40.5" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 170 0.5" opacity="1"></path>
+                                                </g>
+                                                <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="170" height="40"></rect>
+                                                <g class="highcharts-axis highcharts-xaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 0 40 L 170 40"></path>
+                                                </g>
+                                                <g class="highcharts-axis highcharts-yaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 170 0 L 170 40"></path>
+                                                </g>
+                                                <g class="highcharts-series-group">
+                                                    <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-73)">
+                                                        <path fill="url(#highcharts-bucs6j8-74)" d="M 0 40 L 85 22 L 170 0 L 170 40 L 85 40 L 0 40" class="highcharts-area"></path>
+                                                        <path fill="none" d="M 0 40 L 85 22 L 170 0" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path fill="none" d="M -10 40 L 0 40 L 85 22 L 170 0 L 180 0" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                                    </g>
+                                                    <g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(0,0) scale(1 1)"></g>
+                                                </g><text x="85" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="85" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                                <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="15.4609375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>1. Jan</tspan>
+                                                    </text><text x="85" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00:00.001</tspan>
+                                                    </text><text x="148.75" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00…</tspan>
+                                                        <title>00:00:00.002</title>
+                                                    </text></g>
+                                                <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details-col">
+                <div class="details-card details-twitter">
+                    <div class="details-card-block">
+                        <div class="details-card-block-left">
+                            <div class="header-title has-tooltip">Retweets (Shares)</div>
+                            <div class="header-data">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 20.006 20.006">
+                                    <defs>
+                                        <style>
+                                            .cls-1tw {
+                                                fill: #5fa8dd
+                                            }
+
+                                            .cls-2tw {
+                                                fill: #fff
+                                            }
+
+                                        </style>
+                                    </defs>
+                                    <g id="Group_6607" data-name="Group 6607" transform="translate(-532 -254.4)">
+                                        <g id="_" data-name="+" transform="translate(532 254.4)">
+                                            <path id="Path_2544" d="M10 0A10 10 0 1 1 0 10 10 10 0 0 1 10 0z" class="cls-1tw" data-name="Path 2544" />
+                                        </g>
+                                        <g id="Group_6606" data-name="Group 6606" transform="translate(536.891 260.146)">
+                                            <g id="Group_6605" data-name="Group 6605">
+                                                <path id="Path_2545" d="M-6.735-.627a4.15 4.15 0 0 1-1.214.34 2.153 2.153 0 0 0 .929-1.194 4.16 4.16 0 0 1-1.342.523A2.089 2.089 0 0 0-9.9-1.639 2.136 2.136 0 0 0-12.017.52a2.16 2.16 0 0 0 .054.492 5.959 5.959 0 0 1-4.357-2.256 2.2 2.2 0 0 0-.285 1.086 2.172 2.172 0 0 0 .94 1.8 2.081 2.081 0 0 1-.958-.269V1.4a2.149 2.149 0 0 0 1.7 2.117 2.021 2.021 0 0 1-.558.076 2.048 2.048 0 0 1-.4-.038 2.118 2.118 0 0 0 1.974 1.5 4.182 4.182 0 0 1-2.624.925 4.231 4.231 0 0 1-.5-.03 5.9 5.9 0 0 0 3.239.97A6.042 6.042 0 0 0-7.783.771c0-.094 0-.188-.006-.279A4.353 4.353 0 0 0-6.735-.627" class="cls-2tw" data-name="Path 2545" transform="translate(17.037 1.639)" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+
+                                <span class="big-value" id="twShares">64</span>
+                                <span class="change-value" data-change-value="1.7" style="color: rgb(91, 188, 46);">+1.7%</span>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right">
+                            <div class="header-title">Tweets</div>
+                            <div class="header-data">
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 410.155 410.155" style="width:44px" xml:space="preserve">
+                                    <path style="fill:#76A9EA;" d="M403.632,74.18c-9.113,4.041-18.573,7.229-28.28,9.537c10.696-10.164,18.738-22.877,23.275-37.067
+	l0,0c1.295-4.051-3.105-7.554-6.763-5.385l0,0c-13.504,8.01-28.05,14.019-43.235,17.862c-0.881,0.223-1.79,0.336-2.702,0.336
+	c-2.766,0-5.455-1.027-7.57-2.891c-16.156-14.239-36.935-22.081-58.508-22.081c-9.335,0-18.76,1.455-28.014,4.325
+	c-28.672,8.893-50.795,32.544-57.736,61.724c-2.604,10.945-3.309,21.9-2.097,32.56c0.139,1.225-0.44,2.08-0.797,2.481
+	c-0.627,0.703-1.516,1.106-2.439,1.106c-0.103,0-0.209-0.005-0.314-0.015c-62.762-5.831-119.358-36.068-159.363-85.14l0,0
+	c-2.04-2.503-5.952-2.196-7.578,0.593l0,0C13.677,65.565,9.537,80.937,9.537,96.579c0,23.972,9.631,46.563,26.36,63.032
+	c-7.035-1.668-13.844-4.295-20.169-7.808l0,0c-3.06-1.7-6.825,0.485-6.868,3.985l0,0c-0.438,35.612,20.412,67.3,51.646,81.569
+	c-0.629,0.015-1.258,0.022-1.888,0.022c-4.951,0-9.964-0.478-14.898-1.421l0,0c-3.446-0.658-6.341,2.611-5.271,5.952l0,0
+	c10.138,31.651,37.39,54.981,70.002,60.278c-27.066,18.169-58.585,27.753-91.39,27.753l-10.227-0.006
+	c-3.151,0-5.816,2.054-6.619,5.106c-0.791,3.006,0.666,6.177,3.353,7.74c36.966,21.513,79.131,32.883,121.955,32.883
+	c37.485,0,72.549-7.439,104.219-22.109c29.033-13.449,54.689-32.674,76.255-57.141c20.09-22.792,35.8-49.103,46.692-78.201
+	c10.383-27.737,15.871-57.333,15.871-85.589v-1.346c-0.001-4.537,2.051-8.806,5.631-11.712c13.585-11.03,25.415-24.014,35.16-38.591
+	l0,0C411.924,77.126,407.866,72.302,403.632,74.18L403.632,74.18z" />
+                                </svg>
+
+                                <span class="tweets-number small-value" id="twTweets">128</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-chart-big social-chart-card" id="twitterRetweets" data-chart="45,54,74,102,110" data-chart-height="200" data-chart-type="area" data-positive="True">
+                        <div class="charts-cell-chart-div">
+                            <div class="charts-cell-chart" id="twitterRetweets_child" data-highcharts-chart="15">
+                                <div id="highcharts-bucs6j8-75" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 1000px; height: 200px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1000" height="200" viewBox="0 0 363 70">
+                                        <desc>Created with Highstock 6.0.3</desc>
+                                        <defs>
+                                            <clipPath id="highcharts-bucs6j8-76">
+                                                <rect x="0" y="0" width="363" height="70" fill="none"></rect>
+                                            </clipPath>
+                                            <clipPath id="highcharts-bucs6j8-78">
+                                                <rect x="0" y="0" width="363" height="70" fill="none"></rect>
+                                            </clipPath>
+                                            <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-79">
+                                                <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <rect fill="transparent" class="highcharts-background" x="0" y="0" width="363" height="70" rx="0" ry="0"></rect>
+                                        <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="363" height="70"></rect>
+                                        <g class="highcharts-pane-group"></g>
+                                        <g class="highcharts-grid highcharts-xaxis-grid ">
+                                            <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 90.5 0 L 90.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 181.5 0 L 181.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 271.5 0 L 271.5 70" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 362.5 0 L 362.5 70" opacity="1"></path>
+                                        </g>
+                                        <g class="highcharts-grid highcharts-yaxis-grid ">
+                                            <path fill="none" class="highcharts-grid-line" d="M 0 70.5 L 363 70.5" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 363 0.5" opacity="1"></path>
+                                        </g>
+                                        <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="363" height="70"></rect>
+                                        <g class="highcharts-axis highcharts-xaxis ">
+                                            <path fill="none" class="highcharts-axis-line" d="M 0 70 L 363 70"></path>
+                                        </g>
+                                        <g class="highcharts-axis highcharts-yaxis ">
+                                            <path fill="none" class="highcharts-axis-line" d="M 363 0 L 363 70"></path>
+                                        </g>
+                                        <path fill="none" class="highcharts-crosshair highcharts-crosshair-thin undefined" stroke="#cccccc" stroke-width="1" style="pointer-events:none;" visibility="hidden" d="M 271.5 0 L 271.5 70"></path>
+                                        <g class="highcharts-series-group">
+                                            <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-78)">
+                                                <path fill="url(#highcharts-bucs6j8-79)" d="M 0 65.625 L 90.75 57.75 L 181.5 40.25 L 272.25 15.75 L 363 8.75 L 363 70 L 272.25 70 L 181.5 70 L 90.75 70 L 0 70" class="highcharts-area"></path>
+                                                <path fill="none" d="M 0 65.625 L 90.75 57.75 L 181.5 40.25 L 272.25 15.75 L 363 8.75" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                <path fill="none" d="M -10 65.625 L 0 65.625 L 90.75 57.75 L 181.5 40.25 L 272.25 15.75 L 363 8.75 L 373 8.75" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                            </g>
+                                            <g class="highcharts-markers highcharts-series-0 highcharts-area-series highcharts-tracker " transform="translate(0,0) scale(1 1)">
+                                                <path fill="#6fc9ab" d="M 272 15.75 A 0 0 0 1 1 272 15.75 Z" class="highcharts-halo highcharts-color-undefined" fill-opacity="0.25"></path>
+                                                <path fill="#6fc9ab" d="M 276 16 A 4 4 0 1 1 275.9999980000002 15.996000000666664 Z" stroke="#ffffff" stroke-width="1" visibility="hidden"></path>
+                                            </g>
+                                        </g><text x="182" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="182" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                        <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="13.2734375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>1. Jan</tspan>
+                                            </text><text x="90.75" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:00.001</tspan>
+                                            </text><text x="181.5" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:00.002</tspan>
+                                            </text><text x="272.25" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:00.003</tspan>
+                                            </text><text x="340.3125" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="89" opacity="1">
+                                                <tspan>00:00:0…</tspan>
+                                                <title>00:00:00.004</title>
+                                            </text></g>
+                                        <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                        <g class="highcharts-tooltip" opacity="0" visibility="visible" y="-9999">
+                                            <g class="highcharts-label highcharts-tooltip-box highcharts-color-none" transform="translate(176,0)" style="cursor:default;pointer-events:none;white-space:nowrap;">
+                                                <path fill="none" class="highcharts-label-box" d="M 3.5 0.5 L 76.5 0.5 C 79.5 0.5 79.5 0.5 79.5 3.5 L 79.5 9.75 85.5 15.75 79.5 21.75 79.5 27.5 C 79.5 30.5 79.5 30.5 76.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-width="5" isShadow="true" stroke-opacity="0.049999999999999996" transform="translate(1, 1)"></path>
+                                                <path fill="none" class="highcharts-label-box" d="M 3.5 0.5 L 76.5 0.5 C 79.5 0.5 79.5 0.5 79.5 3.5 L 79.5 9.75 85.5 15.75 79.5 21.75 79.5 27.5 C 79.5 30.5 79.5 30.5 76.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-width="3" isShadow="true" stroke-opacity="0.09999999999999999" transform="translate(1, 1)"></path>
+                                                <path fill="none" class="highcharts-label-box" d="M 3.5 0.5 L 76.5 0.5 C 79.5 0.5 79.5 0.5 79.5 3.5 L 79.5 9.75 85.5 15.75 79.5 21.75 79.5 27.5 C 79.5 30.5 79.5 30.5 76.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-width="1" isShadow="true" stroke-opacity="0.15" transform="translate(1, 1)"></path>
+                                                <path fill="rgba(247,247,247,0.85)" class="highcharts-label-box" d="M 3.5 0.5 L 76.5 0.5 C 79.5 0.5 79.5 0.5 79.5 3.5 L 79.5 9.75 85.5 15.75 79.5 21.75 79.5 27.5 C 79.5 30.5 79.5 30.5 76.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#6fc9ab" stroke-width="1"></path><text x="8" y="20" style="font-size:12px;color:#333333;fill:#333333;">
+                                                    <tspan>Value is </tspan>
+                                                    <tspan style="font-weight:bold" dx="0">102</tspan>
+                                                </text>
+                                            </g>
+                                        </g>
+                                    </svg></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-block separated">
+                        <div class="details-card-block-left" id="twEngagement">
+                            <div class="header-title-small">Engagement</div>
+                            <div class="mid-value">654</div>
+                            <div class="change-value" data-change-value="1" style="color: rgb(91, 188, 46);">+1%</div>
+                            <div class="details-card-chart-small social-chart-card" id="twitterEngagementChart" data-chart="46,65,84,103,120" data-chart-height="150" data-chart-type="area" data-positive="True" style="margin-bottom:45px">
+                                <div class="charts-cell-chart-div">
+                                    <div class="charts-cell-chart" id="twitterEngagementChart_child" data-highcharts-chart="16">
+                                        <div id="highcharts-bucs6j8-80" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 450px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="450" height="150" viewBox="0 0 150 40">
+                                                <desc>Created with Highstock 6.0.3</desc>
+                                                <defs>
+                                                    <clipPath id="highcharts-bucs6j8-81">
+                                                        <rect x="0" y="0" width="150" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <clipPath id="highcharts-bucs6j8-83">
+                                                        <rect x="0" y="0" width="150" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-84">
+                                                        <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                        <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <rect fill="transparent" class="highcharts-background" x="0" y="0" width="150" height="40" rx="0" ry="0"></rect>
+                                                <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="150" height="40"></rect>
+                                                <g class="highcharts-pane-group"></g>
+                                                <g class="highcharts-grid highcharts-xaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 74.5 0 L 74.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 149.5 0 L 149.5 40" opacity="1"></path>
+                                                </g>
+                                                <g class="highcharts-grid highcharts-yaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 40.5 L 150 40.5" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 150 0.5" opacity="1"></path>
+                                                </g>
+                                                <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="150" height="40"></rect>
+                                                <g class="highcharts-axis highcharts-xaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 0 40 L 150 40"></path>
+                                                </g>
+                                                <g class="highcharts-axis highcharts-yaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 150 0 L 150 40"></path>
+                                                </g>
+                                                <g class="highcharts-series-group">
+                                                    <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-83)">
+                                                        <path fill="url(#highcharts-bucs6j8-84)" d="M 0 37 L 37.5 27.5 L 75 18 L 112.5 8.5 L 150 0 L 150 40 L 112.5 40 L 75 40 L 37.5 40 L 0 40" class="highcharts-area"></path>
+                                                        <path fill="none" d="M 0 37 L 37.5 27.5 L 75 18 L 112.5 8.5 L 150 0" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path fill="none" d="M -10 37 L 0 37 L 37.5 27.5 L 75 18 L 112.5 8.5 L 150 0 L 160 0" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                                    </g>
+                                                    <g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(0,0) scale(1 1)"></g>
+                                                </g><text x="75" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="75" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                                <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="15.4609375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>1. Jan</tspan>
+                                                    </text><text x="75" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00:00.002</tspan>
+                                                    </text><text x="131.25" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:0…</tspan>
+                                                        <title>00:00:00.004</title>
+                                                    </text></g>
+                                                <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right bordered" id="twImpression">
+                            <div class="header-title-small">Likes</div>
+                            <div class="mid-value">125</div>
+                            <div class="change-value" data-change-value="1.7" style="color: rgb(91, 188, 46);">+1.7%</div>
+                            <div class="details-card-chart-small social-chart-card" id="twitterImpressionChart" data-chart="5,11,54,66,78" data-chart-height="150" data-chart-type="area" data-positive="True">
+                                <div class="charts-cell-chart-div">
+                                    <div class="charts-cell-chart" id="twitterImpressionChart_child" data-highcharts-chart="17">
+                                        <div id="highcharts-bucs6j8-85" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 450px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="450" height="150" viewBox="0 0 150 40">
+                                                <desc>Created with Highstock 6.0.3</desc>
+                                                <defs>
+                                                    <clipPath id="highcharts-bucs6j8-86">
+                                                        <rect x="0" y="0" width="150" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <clipPath id="highcharts-bucs6j8-88">
+                                                        <rect x="0" y="0" width="150" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-89">
+                                                        <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                        <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <rect fill="transparent" class="highcharts-background" x="0" y="0" width="150" height="40" rx="0" ry="0"></rect>
+                                                <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="150" height="40"></rect>
+                                                <g class="highcharts-pane-group"></g>
+                                                <g class="highcharts-grid highcharts-xaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 74.5 0 L 74.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 149.5 0 L 149.5 40" opacity="1"></path>
+                                                </g>
+                                                <g class="highcharts-grid highcharts-yaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 40.5 L 150 40.5" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 150 0.5" opacity="1"></path>
+                                                </g>
+                                                <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="150" height="40"></rect>
+                                                <g class="highcharts-axis highcharts-xaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 0 40 L 150 40"></path>
+                                                </g>
+                                                <g class="highcharts-axis highcharts-yaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 150 0 L 150 40"></path>
+                                                </g>
+                                                <path fill="none" class="highcharts-crosshair highcharts-crosshair-thin undefined" stroke="#cccccc" stroke-width="1" style="pointer-events:none;" visibility="hidden" d="M 112.5 0 L 112.5 40"></path>
+                                                <g class="highcharts-series-group">
+                                                    <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-88)">
+                                                        <path fill="url(#highcharts-bucs6j8-89)" d="M 0 37.5 L 37.5 34.5 L 75 13 L 112.5 7 L 150 1 L 150 40 L 112.5 40 L 75 40 L 37.5 40 L 0 40" class="highcharts-area"></path>
+                                                        <path fill="none" d="M 0 37.5 L 37.5 34.5 L 75 13 L 112.5 7 L 150 1" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path fill="none" d="M -10 37.5 L 0 37.5 L 37.5 34.5 L 75 13 L 112.5 7 L 150 1 L 160 1" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                                    </g>
+                                                    <g class="highcharts-markers highcharts-series-0 highcharts-area-series highcharts-tracker " transform="translate(0,0) scale(1 1)">
+                                                        <path fill="#6fc9ab" d="M 112 7 A 0 0 0 1 1 112 7 Z" class="highcharts-halo highcharts-color-undefined" fill-opacity="0.25"></path>
+                                                        <path fill="#6fc9ab" d="M 116 7 A 4 4 0 1 1 115.99999800000016 6.9960000006666645 Z" stroke="#ffffff" stroke-width="1" visibility="hidden"></path>
+                                                    </g>
+                                                </g><text x="75" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="75" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                                <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="15.4609375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>1. Jan</tspan>
+                                                    </text><text x="75" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00:00.002</tspan>
+                                                    </text><text x="131.25" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:0…</tspan>
+                                                        <title>00:00:00.004</title>
+                                                    </text></g>
+                                                <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                                <g class="highcharts-tooltip" opacity="0" visibility="visible" y="-9999">
+                                                    <g class="highcharts-label highcharts-tooltip-box highcharts-color-none" transform="translate(11,0)" style="cursor:default;pointer-events:none;white-space:nowrap;">
+                                                        <path fill="none" class="highcharts-label-box" d="M 3.5 0.5 L 81.5 0.5 C 84.5 0.5 84.5 0.5 84.5 3.5 L 84.5 15 101.5 7 84.5 15 84.5 27.5 C 84.5 30.5 84.5 30.5 81.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-width="5" isShadow="true" stroke-opacity="0.049999999999999996" transform="translate(1, 1)"></path>
+                                                        <path fill="none" class="highcharts-label-box" d="M 3.5 0.5 L 81.5 0.5 C 84.5 0.5 84.5 0.5 84.5 3.5 L 84.5 15 101.5 7 84.5 15 84.5 27.5 C 84.5 30.5 84.5 30.5 81.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-width="3" isShadow="true" stroke-opacity="0.09999999999999999" transform="translate(1, 1)"></path>
+                                                        <path fill="none" class="highcharts-label-box" d="M 3.5 0.5 L 81.5 0.5 C 84.5 0.5 84.5 0.5 84.5 3.5 L 84.5 15 101.5 7 84.5 15 84.5 27.5 C 84.5 30.5 84.5 30.5 81.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#000000" stroke-width="1" isShadow="true" stroke-opacity="0.15" transform="translate(1, 1)"></path>
+                                                        <path fill="rgba(247,247,247,0.85)" class="highcharts-label-box" d="M 3.5 0.5 L 81.5 0.5 C 84.5 0.5 84.5 0.5 84.5 3.5 L 84.5 15 101.5 7 84.5 15 84.5 27.5 C 84.5 30.5 84.5 30.5 81.5 30.5 L 3.5 30.5 C 0.5 30.5 0.5 30.5 0.5 27.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#6fc9ab" stroke-width="1"></path><text x="8" y="20" style="font-size:12px;color:#333333;fill:#333333;">
+                                                            <tspan>Value is </tspan>
+                                                            <tspan style="font-weight:bold" dx="0">66</tspan>
+                                                        </text>
+                                                    </g>
+                                                </g>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-block separated spaced">
+                        <div class="details-card-block-left" id="twSubscribers">
+                            <div class="header-title-small">Subscribers</div>
+                            <div class="mid-value">178</div>
+                            <div class="change-value-black" data-change-value="1.2">
+                                <div class="positive">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                        <defs>
+                                            <style>
+                                                .cls-1 {
+                                                    fill: #ed3424
+                                                }
+
+                                            </style>
+                                        </defs>
+                                        <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                        <defs>
+                                            <style>
+                                                .cls-2 {
+                                                    fill: #5bbc2e
+                                                }
+
+                                            </style>
+                                        </defs>
+                                        <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                    </svg>
+                                    <span>+1.2%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right bordered" id="twComments">
+                            <div class="header-title-small">Comments</div>
+                            <div class="mid-value">56</div>
+                            <div class="change-value-black" data-change-value="-0.2">
+                                <div class="negative">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                        <defs>
+                                            <style>
+                                                .cls-1 {
+                                                    fill: #ed3424
+                                                }
+
+                                            </style>
+                                        </defs>
+                                        <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                        <defs>
+                                            <style>
+                                                .cls-2 {
+                                                    fill: #5bbc2e
+                                                }
+
+                                            </style>
+                                        </defs>
+                                        <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                    </svg>
+                                    <span>-0.2%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-linear-chart social-chart-card chart-linear" id="twitterLinearChart" data-subscribers="123,134,142,156,187,175,178" data-comments="12,15,18,22,35,46,56" data-chart-height="250" data-chart-type="line" style="margin-top:40px">
+                        <div class="charts-cell-chart-div">
+                            <div class="charts-cell-chart" id="twitterLinearChart_child" data-highcharts-chart="18">
+                                <div id="highcharts-bucs6j8-90" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 1000px; height: 250px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1000" height="250" viewBox="0 0 323 100">
+                                        <desc>Created with Highstock 6.0.3</desc>
+                                        <defs>
+                                            <clipPath id="highcharts-bucs6j8-91">
+                                                <rect x="0" y="0" width="303" height="65" fill="none"></rect>
+                                            </clipPath>
+                                            <clipPath id="highcharts-bucs6j8-93">
+                                                <rect x="0" y="0" width="303" height="65" fill="none"></rect>
+                                            </clipPath>
+                                        </defs>
+                                        <rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="323" height="100" rx="0" ry="0"></rect>
+                                        <rect fill="none" class="highcharts-plot-background" x="10" y="10" width="303" height="65"></rect>
+                                        <g class="highcharts-pane-group"></g>
+                                        <g class="highcharts-grid highcharts-xaxis-grid ">
+                                            <path fill="none" class="highcharts-grid-line" d="M 12.5 10 L 12.5 75" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 111.5 10 L 111.5 75" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 210.5 10 L 210.5 75" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 309.5 10 L 309.5 75" opacity="1"></path>
+                                        </g>
+                                        <g class="highcharts-grid highcharts-yaxis-grid ">
+                                            <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line" d="M 10 75.5 L 313 75.5" opacity="1"></path>
+                                            <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line" d="M 10 9.5 L 313 9.5" opacity="1"></path>
+                                        </g>
+                                        <rect fill="none" class="highcharts-plot-border" x="10" y="10" width="303" height="65"></rect>
+                                        <g class="highcharts-axis highcharts-xaxis ">
+                                            <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 12.5 75 L 12.5 85" opacity="1"></path>
+                                            <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 111.5 75 L 111.5 85" opacity="1"></path>
+                                            <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 210.5 75 L 210.5 85" opacity="1"></path>
+                                            <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 309.5 75 L 309.5 85" opacity="1"></path>
+                                            <path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1" d="M 10 75.5 L 313 75.5"></path>
+                                        </g>
+                                        <g class="highcharts-axis highcharts-yaxis ">
+                                            <path fill="none" class="highcharts-axis-line" d="M 10 10 L 10 75"></path>
+                                        </g>
+                                        <g class="highcharts-series-group">
+                                            <g class="highcharts-series highcharts-series-0 highcharts-line-series highcharts-color-0 " transform="translate(10,10) scale(1 1)" clip-path="url(#highcharts-bucs6j8-93)">
+                                                <path fill="none" d="M 2.9705882352941 61.1 L 52.480392156863 60.125 L 101.99019607843 59.15 L 151.5 57.85 L 201.00980392157 53.625 L 250.51960784314 50.05 L 300.02941176471 46.8" class="highcharts-graph" stroke="#f05f22" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                <path fill="none" d="M -7.0294117647059 61.1 L 2.9705882352941 61.1 L 52.480392156863 60.125 L 101.99019607843 59.15 L 151.5 57.85 L 201.00980392157 53.625 L 250.51960784314 50.05 L 300.02941176471 46.8 L 310.02941176471 46.8" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" class="highcharts-tracker"></path>
+                                            </g>
+                                            <g class="highcharts-markers highcharts-series-0 highcharts-line-series highcharts-color-0  highcharts-tracker" transform="translate(10,10) scale(1 1)">
+                                                <path fill="#FFFFFF" d="M 6 61.1 A 4 4 0 1 1 5.999998000000167 61.09600000066666 Z" stroke="#f05f22" stroke-width="2" class="highcharts-point highcharts-color-0"></path>
+                                                <path fill="#FFFFFF" d="M 56 60.125 A 4 4 0 1 1 55.99999800000017 60.12100000066666 Z" stroke="#f05f22" stroke-width="2" class="highcharts-point highcharts-color-0"></path>
+                                                <path fill="#FFFFFF" d="M 105 59.15 A 4 4 0 1 1 104.99999800000016 59.14600000066666 Z" stroke="#f05f22" stroke-width="2" class="highcharts-point highcharts-color-0"></path>
+                                                <path fill="#FFFFFF" d="M 155 57.85 A 4 4 0 1 1 154.99999800000018 57.84600000066666 Z" stroke="#f05f22" stroke-width="2" class="highcharts-point highcharts-color-0"></path>
+                                                <path fill="#FFFFFF" d="M 205 53.625 A 4 4 0 1 1 204.99999800000018 53.62100000066666 Z" stroke="#f05f22" stroke-width="2" class="highcharts-point highcharts-color-0"></path>
+                                                <path fill="#FFFFFF" d="M 254 50.05 A 4 4 0 1 1 253.99999800000018 50.04600000066666 Z" stroke="#f05f22" stroke-width="2" class="highcharts-point highcharts-color-0"></path>
+                                                <path fill="#FFFFFF" d="M 304 46.8 A 4 4 0 1 1 303.9999980000002 46.79600000066666 Z" stroke="#f05f22" stroke-width="2" class="highcharts-point highcharts-color-0"></path>
+                                            </g>
+                                            <g class="highcharts-series highcharts-series-1 highcharts-line-series highcharts-color-1 " transform="translate(10,10) scale(1 1)" clip-path="url(#highcharts-bucs6j8-93)">
+                                                <path fill="none" d="M 2.9705882352941 25.025 L 52.480392156863 21.449999999999996 L 101.99019607843 18.85 L 151.5 14.299999999999997 L 201.00980392157 4.225000000000001 L 250.51960784314 8.125 L 300.02941176471 7.149999999999999" class="highcharts-graph" stroke="#167cf4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                <path fill="none" d="M -7.0294117647059 25.025 L 2.9705882352941 25.025 L 52.480392156863 21.449999999999996 L 101.99019607843 18.85 L 151.5 14.299999999999997 L 201.00980392157 4.225000000000001 L 250.51960784314 8.125 L 300.02941176471 7.149999999999999 L 310.02941176471 7.149999999999999" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" class="highcharts-tracker"></path>
+                                            </g>
+                                            <g class="highcharts-markers highcharts-series-1 highcharts-line-series highcharts-color-1  highcharts-tracker" transform="translate(10,10) scale(1 1)">
+                                                <path fill="#FFFFFF" d="M 6 25.025 A 4 4 0 1 1 5.999998000000167 25.021000000666664 Z" stroke="#167cf4" stroke-width="2" class="highcharts-point highcharts-color-1"></path>
+                                                <path fill="#FFFFFF" d="M 56 21.449999999999996 A 4 4 0 1 1 55.99999800000017 21.44600000066666 Z" stroke="#167cf4" stroke-width="2" class="highcharts-point highcharts-color-1"></path>
+                                                <path fill="#FFFFFF" d="M 105 18.85 A 4 4 0 1 1 104.99999800000016 18.846000000666667 Z" stroke="#167cf4" stroke-width="2" class="highcharts-point highcharts-color-1"></path>
+                                                <path fill="#FFFFFF" d="M 155 14.299999999999997 A 4 4 0 1 1 154.99999800000018 14.29600000066666 Z" stroke="#167cf4" stroke-width="2" class="highcharts-point highcharts-color-1"></path>
+                                                <path fill="#FFFFFF" d="M 205 4.225000000000001 A 4 4 0 1 1 204.99999800000018 4.221000000666666 Z" stroke="#167cf4" stroke-width="2" class="highcharts-point highcharts-color-1"></path>
+                                                <path fill="#FFFFFF" d="M 254 8.125 A 4 4 0 1 1 253.99999800000018 8.121000000666664 Z" stroke="#167cf4" stroke-width="2" class="highcharts-point highcharts-color-1"></path>
+                                                <path fill="#FFFFFF" d="M 304 7.149999999999999 A 4 4 0 1 1 303.9999980000002 7.146000000666663 Z" stroke="#167cf4" stroke-width="2" class="highcharts-point highcharts-color-1"></path>
+                                            </g>
+                                        </g><text x="162" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:18px;fill:#333333;" y="24"></text><text x="162" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                        <g class="highcharts-axis-labels highcharts-xaxis-labels "></g>
+                                        <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                    </svg></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-chart-xtitle">
+                        <p>05/19/2020</p>
+                        <p>05/26/2020</p>
+                        <p>05/29/2020</p>
+                    </div>
+                </div>
+            </div>
+            <div class="details-col">
+                <div class="details-card details-linkedin">
+                    <div class="details-card-block">
+                        <div class="details-card-block-left">
+                            <div class="header-title has-tooltip">LinkedIn Shares</div>
+                            <div class="header-data">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 32 32">
+                                    <defs>
+                                        <style>
+                                            .cls-1li {
+                                                fill: #0073b1
+                                            }
+
+                                        </style>
+                                    </defs>
+                                    <path id="linkedin" d="M18.916 13.726a2.557 2.557 0 0 0-2.323 1.281v-1.1h-2.58c.034.727 0 7.76 0 7.76h2.579v-4.334a1.751 1.751 0 0 1 .084-.63A1.419 1.419 0 0 1 18 15.76c.933 0 1.306.712 1.306 1.756v4.152h2.58v-4.45c0-2.382-1.274-3.491-2.965-3.491zm-2.326 1.309h-.016a.238.238 0 0 0 .016-.026zM10 13.909h2.579v7.76H10zM16 0a16 16 0 1 0 16 16A16.018 16.018 0 0 0 16 0zm8.49 23.237a1.241 1.241 0 0 1-1.263 1.225H8.668a1.245 1.245 0 0 1-1.261-1.225V8.507a1.241 1.241 0 0 1 1.261-1.224h14.553a1.247 1.247 0 0 1 1.263 1.225V23.23zM11.311 10.168a1.344 1.344 0 1 0-.041 2.681h.017a1.345 1.345 0 1 0 .017-2.681z" class="cls-1li" />
+                                </svg>
+
+                                <span class="big-value" id="liShares">231</span>
+                                <span class="change-value" id="liSharesChange" data-change-value="1.8" style="color: rgb(91, 188, 46);">+1.8%</span>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right">
+                            <div class="header-title">Likes</div>
+                            <div class="header-data">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 12.538 12.705">
+                                    <defs>
+                                        <style>
+                                            .cls-1tu {
+                                                fill: none;
+                                                stroke: #485985;
+                                                stroke-linecap: round;
+                                                stroke-linejoin: round;
+                                                stroke-width: 2px;
+                                                opacity: .6
+                                            }
+
+                                        </style>
+                                    </defs>
+                                    <path id="thumbs-up_1_" d="M8.423 5.747V3.606A1.606 1.606 0 0 0 6.817 2L4.676 6.817v5.888h6.038a1.071 1.071 0 0 0 1.071-.91l.739-4.817a1.071 1.071 0 0 0-1.071-1.231zm-3.747 6.958H3.071A1.071 1.071 0 0 1 2 11.635V7.888a1.071 1.071 0 0 1 1.071-1.071h1.605" class="cls-1tu" data-name="thumbs-up (1)" transform="translate(-1 -1)" />
+                                </svg>
+                                <span class="likes-number small-value">254</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-chart-big social-chart-card" id="linkedinSharesChart" data-chart="14,58,65,77,99" data-chart-height="150" data-chart-type="area" data-positive="True">
+                        <div class="charts-cell-chart-div">
+                            <div class="charts-cell-chart" id="linkedinSharesChart_child" data-highcharts-chart="19">
+                                <div id="highcharts-bucs6j8-94" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 1000px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="1000" height="150" viewBox="0 0 363 40">
+                                        <desc>Created with Highstock 6.0.3</desc>
+                                        <defs>
+                                            <clipPath id="highcharts-bucs6j8-95">
+                                                <rect x="0" y="0" width="363" height="40" fill="none"></rect>
+                                            </clipPath>
+                                            <clipPath id="highcharts-bucs6j8-97">
+                                                <rect x="0" y="0" width="363" height="40" fill="none"></rect>
+                                            </clipPath>
+                                            <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-98">
+                                                <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <rect fill="transparent" class="highcharts-background" x="0" y="0" width="363" height="40" rx="0" ry="0"></rect>
+                                        <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="363" height="40"></rect>
+                                        <g class="highcharts-pane-group"></g>
+                                        <g class="highcharts-grid highcharts-xaxis-grid ">
+                                            <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 40" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 90.5 0 L 90.5 40" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 181.5 0 L 181.5 40" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 271.5 0 L 271.5 40" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 362.5 0 L 362.5 40" opacity="1"></path>
+                                        </g>
+                                        <g class="highcharts-grid highcharts-yaxis-grid ">
+                                            <path fill="none" class="highcharts-grid-line" d="M 0 40.5 L 363 40.5" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 363 0.5" opacity="1"></path>
+                                        </g>
+                                        <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="363" height="40"></rect>
+                                        <g class="highcharts-axis highcharts-xaxis ">
+                                            <path fill="none" class="highcharts-axis-line" d="M 0 40 L 363 40"></path>
+                                        </g>
+                                        <g class="highcharts-axis highcharts-yaxis ">
+                                            <path fill="none" class="highcharts-axis-line" d="M 363 0 L 363 40"></path>
+                                        </g>
+                                        <g class="highcharts-series-group">
+                                            <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-97)">
+                                                <path fill="url(#highcharts-bucs6j8-98)" d="M 0 34.4 L 90.75 16.799999999999997 L 181.5 14 L 272.25 9.2 L 363 0.3999999999999986 L 363 40 L 272.25 40 L 181.5 40 L 90.75 40 L 0 40" class="highcharts-area"></path>
+                                                <path fill="none" d="M 0 34.4 L 90.75 16.799999999999997 L 181.5 14 L 272.25 9.2 L 363 0.3999999999999986" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                <path fill="none" d="M -10 34.4 L 0 34.4 L 90.75 16.799999999999997 L 181.5 14 L 272.25 9.2 L 363 0.3999999999999986 L 373 0.3999999999999986" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                            </g>
+                                            <g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(0,0) scale(1 1)"></g>
+                                        </g><text x="182" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="182" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                        <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="13.2734375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                <tspan>1. Jan</tspan>
+                                            </text><text x="90.75" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                <tspan>00:00:00.001</tspan>
+                                            </text><text x="181.5" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                <tspan>00:00:00.002</tspan>
+                                            </text><text x="272.25" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                <tspan>00:00:00.003</tspan>
+                                            </text><text x="340.3125" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                <tspan>00:00:0…</tspan>
+                                                <title>00:00:00.004</title>
+                                            </text></g>
+                                        <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                    </svg></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-table-header">LinkedIn Key Metrics</div>
+                    <table class="details-card-table" id="liTable">
+                        <tbody>
+                            <tr>
+                                <td>Likes</td>
+                                <td>254</td>
+                                <td class="change-value-black" data-change-value="3.8">
+                                    <span>+3.8%</span>
+                                    <div class="positive" style="display: inline">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                            <defs></defs>
+                                            <path id="Polygon_546" d="M7.5 0L0 8h15z" style="fill: #ed3424" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                            <defs></defs>
+                                            <path id="Polygon_546" d="M17.5 18.664L0 0h35z" style="fill:#5bbc2e" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Shares</td>
+                                <td>231</td>
+                                <td class="change-value-black" data-change-value="-3.8">
+                                    <span>-3.8%</span>
+                                    <div class="negative" style="display: inline">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                            <defs></defs>
+                                            <path id="Polygon_546" d="M7.5 0L0 8h15z" style="fill: #ed3424" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                            <defs></defs>
+                                            <path id="Polygon_546" d="M17.5 18.664L0 0h35z" style="fill:#5bbc2e" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Followers</td>
+                                <td>3548</td>
+                                <td class="change-value-black" data-change-value="1.8">
+                                    <span>1.8%</span>
+                                    <div class="positive" style="display: inline">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                            <defs></defs>
+                                            <path id="Polygon_546" d="M7.5 0L0 8h15z" style="fill: #ed3424" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                            <defs></defs>
+                                            <path id="Polygon_546" d="M17.5 18.664L0 0h35z" style="fill:#5bbc2e" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Visitors</td>
+                                <td>54568</td>
+                                <td class="change-value-black" data-change-value="2.4">
+                                    <span>2.4%</span>
+                                    <div class="positive" style="display: inline">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                            <defs></defs>
+                                            <path id="Polygon_546" d="M7.5 0L0 8h15z" style="fill: #ed3424" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                            <defs></defs>
+                                            <path id="Polygon_546" d="M17.5 18.664L0 0h35z" style="fill:#5bbc2e" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="details-card-block separated full-width chart-coupled">
+                        <div class="details-card-block-left" id="liEngagement">
+                            <div class="shifted-right">
+                                <div class="header-title-small">Engagement</div>
+                                <div class="mid-value">312</div>
+                                <div class="change-value" data-change-value="1.8" style="color: rgb(91, 188, 46);">+1.8%</div>
+                            </div>
+                            <div class="details-card-chart-small social-chart-card" id="linkedinEngagementChart" data-chart="23,35,44,56,64" data-chart-height="150" data-chart-type="area" data-positive="True">
+                                <div class="charts-cell-chart-div">
+                                    <div class="charts-cell-chart" id="linkedinEngagementChart_child" data-highcharts-chart="20">
+                                        <div id="highcharts-bucs6j8-99" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 450px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="450" height="150" viewBox="0 0 180 40">
+                                                <desc>Created with Highstock 6.0.3</desc>
+                                                <defs>
+                                                    <clipPath id="highcharts-bucs6j8-100">
+                                                        <rect x="0" y="0" width="180" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <clipPath id="highcharts-bucs6j8-102">
+                                                        <rect x="0" y="0" width="180" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-103">
+                                                        <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                        <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <rect fill="transparent" class="highcharts-background" x="0" y="0" width="180" height="40" rx="0" ry="0"></rect>
+                                                <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="180" height="40"></rect>
+                                                <g class="highcharts-pane-group"></g>
+                                                <g class="highcharts-grid highcharts-xaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 89.5 0 L 89.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 179.5 0 L 179.5 40" opacity="1"></path>
+                                                </g>
+                                                <g class="highcharts-grid highcharts-yaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 40.5 L 180 40.5" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 180 0.5" opacity="1"></path>
+                                                </g>
+                                                <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="180" height="40"></rect>
+                                                <g class="highcharts-axis highcharts-xaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 0 40 L 180 40"></path>
+                                                </g>
+                                                <g class="highcharts-axis highcharts-yaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 180 0 L 180 40"></path>
+                                                </g>
+                                                <g class="highcharts-series-group">
+                                                    <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-102)">
+                                                        <path fill="url(#highcharts-bucs6j8-103)" d="M 0 30.416666666666664 L 45 25.416666666666664 L 90 21.666666666666664 L 135 16.666666666666664 L 180 13.333333333333332 L 180 40 L 135 40 L 90 40 L 45 40 L 0 40" class="highcharts-area"></path>
+                                                        <path fill="none" d="M 0 30.416666666666664 L 45 25.416666666666664 L 90 21.666666666666664 L 135 16.666666666666664 L 180 13.333333333333332" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path fill="none" d="M -10 30.416666666666664 L 0 30.416666666666664 L 45 25.416666666666664 L 90 21.666666666666664 L 135 16.666666666666664 L 180 13.333333333333332 L 190 13.333333333333332" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                                    </g>
+                                                    <g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(0,0) scale(1 1)"></g>
+                                                </g><text x="90" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="90" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                                <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="15.4609375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>1. Jan</tspan>
+                                                    </text><text x="90" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00:00.002</tspan>
+                                                    </text><text x="157.5" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00:…</tspan>
+                                                        <title>00:00:00.004</title>
+                                                    </text></g>
+                                                <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right bordered" id="liImpression">
+                            <div class="header-title-small">Impression</div>
+                            <div class="mid-value">420</div>
+                            <div class="change-value" data-change-value="1.3" style="color: rgb(91, 188, 46);">+1.3%</div>
+                            <div class="details-card-chart-small social-chart-card" id="linkedinImpressionChart" data-chart="12,57,78,88,92" data-chart-height="150" data-chart-type="area" data-positive="True">
+                                <div class="charts-cell-chart-div">
+                                    <div class="charts-cell-chart" id="linkedinImpressionChart_child" data-highcharts-chart="21">
+                                        <div id="highcharts-bucs6j8-104" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 450px; height: 150px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="450" height="150" viewBox="0 0 180 40">
+                                                <desc>Created with Highstock 6.0.3</desc>
+                                                <defs>
+                                                    <clipPath id="highcharts-bucs6j8-105">
+                                                        <rect x="0" y="0" width="180" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <clipPath id="highcharts-bucs6j8-107">
+                                                        <rect x="0" y="0" width="180" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-bucs6j8-108">
+                                                        <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                        <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <rect fill="transparent" class="highcharts-background" x="0" y="0" width="180" height="40" rx="0" ry="0"></rect>
+                                                <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="180" height="40"></rect>
+                                                <g class="highcharts-pane-group"></g>
+                                                <g class="highcharts-grid highcharts-xaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M -0.5 0 L -0.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 89.5 0 L 89.5 40" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 179.5 0 L 179.5 40" opacity="1"></path>
+                                                </g>
+                                                <g class="highcharts-grid highcharts-yaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 40.5 L 180 40.5" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 180 0.5" opacity="1"></path>
+                                                </g>
+                                                <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="180" height="40"></rect>
+                                                <g class="highcharts-axis highcharts-xaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 0 40 L 180 40"></path>
+                                                </g>
+                                                <g class="highcharts-axis highcharts-yaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 180 0 L 180 40"></path>
+                                                </g>
+                                                <g class="highcharts-series-group">
+                                                    <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-bucs6j8-107)">
+                                                        <path fill="url(#highcharts-bucs6j8-108)" d="M 0 37 L 45 25.75 L 90 20.5 L 135 18 L 180 17 L 180 40 L 135 40 L 90 40 L 45 40 L 0 40" class="highcharts-area"></path>
+                                                        <path fill="none" d="M 0 37 L 45 25.75 L 90 20.5 L 135 18 L 180 17" class="highcharts-graph" stroke="#6fc9ab" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path fill="none" d="M -10 37 L 0 37 L 45 25.75 L 90 20.5 L 135 18 L 180 17 L 190 17" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="21" class="highcharts-tracker"></path>
+                                                    </g>
+                                                    <g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(0,0) scale(1 1)"></g>
+                                                </g><text x="90" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="90" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                                <g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="15.4609375" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>1. Jan</tspan>
+                                                    </text><text x="90" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00:00.002</tspan>
+                                                    </text><text x="157.5" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle" transform="translate(0,0)" y="59" opacity="1">
+                                                        <tspan>00:00:…</tspan>
+                                                        <title>00:00:00.004</title>
+                                                    </text></g>
+                                                <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details-col">
+                <div class="details-card details-youtube">
+                    <div class="details-card-block">
+                        <div class="details-card-block-left">
+                            <div class="header-title has-tooltip">YouTube Shares</div>
+                            <div class="header-data">
+                                <svg height="100%" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;" version="1.1" viewBox="0 0 24 24" width="88px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect height="24" id="Artboard15" style="fill:none;" width="24" x="0" y="0" />
+                                    <g>
+                                        <path d="M2.093,9.075c0.125,-1.941 1.629,-3.509 3.562,-3.716c2.005,-0.202 4.136,-0.311 6.345,-0.311c2.209,0 4.34,0.109 6.345,0.312c1.933,0.206 3.437,1.774 3.562,3.715c0.061,0.956 0.093,1.933 0.093,2.925c0,0.992 -0.032,1.969 -0.093,2.925c-0.125,1.941 -1.629,3.509 -3.562,3.716c-2.005,0.202 -4.136,0.311 -6.345,0.311c-2.209,0 -4.34,-0.109 -6.345,-0.312c-1.933,-0.206 -3.437,-1.774 -3.562,-3.715c-0.061,-0.956 -0.093,-1.933 -0.093,-2.925c0,-0.992 0.032,-1.969 0.093,-2.925Z" style="fill:#f00;" />
+                                        <path d="M15.055,12l-4.909,2.995l0,-5.99l4.909,2.995Z" style="fill:#fff;" />
+                                    </g>
+                                </svg>
+                                <span class="big-value" id="ytShares">123</span>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right">
+                            <div class="header-title">Likes</div>
+                            <div class="header-data">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 12.538 12.705">
+                                    <defs>
+                                        <style>
+                                            .cls-1tu {
+                                                fill: none;
+                                                stroke: #485985;
+                                                stroke-linecap: round;
+                                                stroke-linejoin: round;
+                                                stroke-width: 2px;
+                                                opacity: .6
+                                            }
+
+                                        </style>
+                                    </defs>
+                                    <path id="thumbs-up_1_" d="M8.423 5.747V3.606A1.606 1.606 0 0 0 6.817 2L4.676 6.817v5.888h6.038a1.071 1.071 0 0 0 1.071-.91l.739-4.817a1.071 1.071 0 0 0-1.071-1.231zm-3.747 6.958H3.071A1.071 1.071 0 0 1 2 11.635V7.888a1.071 1.071 0 0 1 1.071-1.071h1.605" class="cls-1tu" data-name="thumbs-up (1)" transform="translate(-1 -1)" />
+                                </svg>
+                                <span class="likes-number small-value" id="ytLikes">21</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-table-header">Subscribers By Period</div>
+                    <div class="details-card-chart-big social-chart-card" id="youtubeSubscribersChart" data-chart="12,14,15,18,19,22,15,33" data-chart-height="300" data-chart-type="column" data-positive="False">
+                        <div class="charts-cell-chart-div">
+                            <div class="charts-cell-chart" id="youtubeSubscribersChart_child" data-highcharts-chart="22">
+                                <div id="highcharts-bucs6j8-109" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 900px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 320 123">
+                                        <desc>Created with Highstock 6.0.3</desc>
+                                        <defs>
+                                            <clipPath id="highcharts-bucs6j8-110">
+                                                <rect x="0" y="0" width="271" height="88" fill="none"></rect>
+                                            </clipPath>
+                                            <clipPath id="highcharts-bucs6j8-111">
+                                                <rect x="0" y="0" width="271" height="88" fill="none"></rect>
+                                            </clipPath>
+                                        </defs>
+                                        <rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="320" height="123" rx="0" ry="0"></rect>
+                                        <rect fill="none" class="highcharts-plot-background" x="39" y="10" width="271" height="88"></rect>
+                                        <g class="highcharts-pane-group"></g>
+                                        <g class="highcharts-grid highcharts-xaxis-grid ">
+                                            <path fill="none" class="highcharts-grid-line" d="M 57.5 10 L 57.5 98" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 140.5 10 L 140.5 98" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 223.5 10 L 223.5 98" opacity="1"></path>
+                                            <path fill="none" class="highcharts-grid-line" d="M 307.5 10 L 307.5 98" opacity="1"></path>
+                                        </g>
+                                        <g class="highcharts-grid highcharts-yaxis-grid ">
+                                            <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line" d="M 39 98.5 L 310 98.5" opacity="1"></path>
+                                            <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line" d="M 39 54.5 L 310 54.5" opacity="1"></path>
+                                            <path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line" d="M 39 9.5 L 310 9.5" opacity="1"></path>
+                                        </g>
+                                        <rect fill="none" class="highcharts-plot-border" x="39" y="10" width="271" height="88"></rect>
+                                        <g class="highcharts-axis highcharts-xaxis ">
+                                            <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 57.5 98 L 57.5 108" opacity="1"></path>
+                                            <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 140.5 98 L 140.5 108" opacity="1"></path>
+                                            <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 223.5 98 L 223.5 108" opacity="1"></path>
+                                            <path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 307.5 98 L 307.5 108" opacity="1"></path>
+                                            <path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1" d="M 39 98.5 L 310 98.5"></path>
+                                        </g>
+                                        <g class="highcharts-axis highcharts-yaxis ">
+                                            <path fill="none" class="highcharts-axis-line" d="M 39 10 L 39 98"></path>
+                                        </g>
+                                        <g class="highcharts-series-group">
+                                            <g class="highcharts-series highcharts-series-0 highcharts-column-series  highcharts-tracker" transform="translate(39,10) scale(1 1)" clip-path="url(#highcharts-bucs6j8-111)">
+                                                <rect x="10.5" y="67.5" width="16" height="21" fill="#50b948" stroke="#ffffff" stroke-width="1" class="highcharts-point"></rect>
+                                                <rect x="43.5" y="63.5" width="16" height="25" fill="#50b948" stroke="#ffffff" stroke-width="1" class="highcharts-point"></rect>
+                                                <rect x="77.5" y="62.5" width="16" height="26" fill="#50b948" stroke="#ffffff" stroke-width="1" class="highcharts-point"></rect>
+                                                <rect x="110.5" y="56.5" width="16" height="32" fill="#50b948" stroke="#ffffff" stroke-width="1" class="highcharts-point"></rect>
+                                                <rect x="143.5" y="55.5" width="16" height="33" fill="#50b948" stroke="#ffffff" stroke-width="1" class="highcharts-point"></rect>
+                                                <rect x="176.5" y="49.5" width="16" height="39" fill="#50b948" stroke="#ffffff" stroke-width="1" class="highcharts-point"></rect>
+                                                <rect x="210.5" y="62.5" width="16" height="26" fill="#50b948" stroke="#ffffff" stroke-width="1" class="highcharts-point"></rect>
+                                                <rect x="243.5" y="30.5" width="16" height="58" fill="#50b948" stroke="#ffffff" stroke-width="1" class="highcharts-point"></rect>
+                                            </g>
+                                            <g class="highcharts-markers highcharts-series-0 highcharts-column-series " transform="translate(39,10) scale(1 1)" clip-path="none"></g>
+                                        </g><text x="160" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:18px;fill:#333333;" y="24"></text><text x="160" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                        <g class="highcharts-axis-labels highcharts-xaxis-labels "></g>
+                                        <g class="highcharts-axis-labels highcharts-yaxis-labels "><text x="24" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="103" opacity="1">
+                                                <tspan>0</tspan>
+                                            </text><text x="24" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="59" opacity="1">
+                                                <tspan>25</tspan>
+                                            </text><text x="24" style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end" transform="translate(0,0)" y="15" opacity="1">
+                                                <tspan>50</tspan>
+                                            </text></g>
+                                    </svg></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-card-chart-xtitle">
+                        <p>05/19/2020</p>
+                        <p>05/26/2020</p>
+                        <p>05/29/2020</p>
+                    </div>
+                    <div class="details-card-statistic">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" enable-background="new 0 0 512 512" height="40px" viewBox="0 0 512 512" width="40px" class="">
+                            <g>
+                                <path d="m310.579 240.712c22.938-18.12 37.676-46.107 37.676-77.459 0-54.5-44.527-98.839-99.259-98.839s-99.26 44.339-99.26 98.839c0 3.572.196 7.1.569 10.575-11.282-6.161-24.221-9.672-37.971-9.672-43.693 0-79.239 35.403-79.239 78.919 0 22.688 9.676 43.156 25.117 57.566-34.237 15.032-58.212 49.256-58.212 88.98v91.772c0 16.877 13.73 30.607 30.607 30.607h111.191 10 204.394c19.56 0 35.472-15.912 35.472-35.472v-120.371c0-53.059-33.849-98.356-81.085-115.445zm-61.583-146.298c38.19 0 69.259 30.881 69.259 68.839s-31.069 68.839-69.259 68.839-69.26-30.881-69.26-68.839 31.07-68.839 69.26-68.839zm-136.662 99.742c27.151 0 49.24 21.945 49.24 48.919 0 3.912-.472 7.794-1.386 11.551-13.795 9.386-25.587 21.505-34.589 35.575-4.293 1.19-8.738 1.794-13.265 1.794-27.15 0-49.239-21.945-49.239-48.92 0-26.973 22.089-48.919 49.239-48.919zm-82.334 287.237v-91.772c0-37.014 30.113-67.127 67.127-67.127h13.895c-3.057 10.701-4.695 21.994-4.695 33.663v120.371c0 1.861.146 3.688.423 5.472h-76.143c-.3 0-.607-.307-.607-.607zm331.664-4.865c0 2.966-2.506 5.472-5.472 5.472h-204.393-10c-2.966 0-5.472-2.506-5.472-5.472v-120.371c0-51.127 41.595-92.722 92.722-92.722h39.893c51.127 0 92.722 41.595 92.722 92.722z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#909BB5" />
+                                <path d="m497 42.358h-27.571v-27.358c0-8.284-6.716-15-15-15s-15 6.716-15 15v27.358h-27.57c-8.284 0-15 6.716-15 15s6.716 15 15 15h27.57v27.359c0 8.284 6.716 15 15 15s15-6.716 15-15v-27.359h27.571c8.284 0 15-6.716 15-15s-6.716-15-15-15z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#909BB5" />
+                            </g>
+                        </svg>
+
+                        <span class="followers-number small-value">124</span>
+                        <div class="positive" style="display: inline">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                <defs>
+                                    <style>
+                                        .cls-1 {
+                                            fill: #ed3424
+                                        }
+
+                                    </style>
+                                </defs>
+                                <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                <defs>
+                                    <style>
+                                        .cls-2 {
+                                            fill: #5bbc2e
+                                        }
+
+                                    </style>
+                                </defs>
+                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                            </svg>
+                        </div>
+                        <span class="comments-number small-value">124</span>
+                    </div>
+                </div>
+                <div class="details-card details-reddit">
+                    <div class="details-card-block">
+                        <div class="details-card-block-left">
+                            <div class="header-title">Reddit Mentions</div>
+                            <div class="header-data">
+                                <img src="/images/reddit-h.svg">
+                                <span class="big-value" id="reShares">24</span>
+                                <span class="change-value" id="reSharesChange" data-change-value="3.27" style="color: rgb(91, 188, 46);">+3.27%</span>
+                                <div class="logged-off-str" data-social-account-type="6"><span class="log-in-bold">Log In</span> to view Details</div>
+                            </div>
+                        </div>
+                        <div class="details-card-block-right">
+                            <div class="header-title">Comments</div>
+                            <div class="header-data">
+                                <span class="comments-number small-value" id="reComments">222</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
