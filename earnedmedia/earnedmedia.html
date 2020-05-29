@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Earned Media</title>
+    <style>
+        @font-face {
+            font-family: HurmeGeometricSans1-Bold;
+            font-style: normal;
+            font-weight: 700;
+            src: local("HurmeGeometricSans1-Bold"), local("HurmeGeometricSans1-Bold"), url("fonts/Hurme-HurmeGeometricSans1-Bold.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans2-Bold;
+            font-style: normal;
+            font-weight: 700;
+            src: local("HurmeGeometricSans2-Bold"), local("HurmeGeometricSans2-Bold"), url("fonts/Hurme-HurmeGeometricSans2-Bold.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans2;
+            font-style: normal;
+            font-weight: 700;
+            src: local("HurmeGeometricSans2-Bold"), local("HurmeGeometricSans2-Bold"), url("fonts/Hurme-HurmeGeometricSans2-Bold.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans2;
+            font-style: normal;
+            font-weight: 300;
+            src: local("HurmeGeometricSans2-Regular"), local("HurmeGeometricSans2-Regular"), url("fonts/Hurme-HurmeGeometricSans2-Regular.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans1;
+            font-style: normal;
+            font-weight: 400;
+            src: local("HurmeGeometricSans1"), local("HurmeGeometricSans1"), url("fonts/Hurme-HurmeGeometricSans1-Regular.otf") format("opentype");
+        }
+
+
+        .list-view-wrapper {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            min-height: 200px;
+        }
+
+        .dataTables_wrapper {
+            position: relative;
+            clear: both;
+            zoom: 1;
+        }
+
+        #trafficSourcesTable {
+            width: 100%;
+            table-layout: fixed;
+            border-bottom: 1px solid rgba(11, 21, 39, .12);
+            margin: 0;
+            border-collapse: collapse;
+            box-sizing: content-box;
+            background-color: transparent;
+        }
+
+        .traffic-sources-table thead {
+            font-family: HurmeGeometricSans2;
+            font-size: 22px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 1px;
+            text-align: left;
+            color: #a0acb0;
+            border: solid 1px #f1f1f2;
+            background-color: #fafbfc;
+        }
+
+        table.dataTable thead th,
+        table.dataTable thead td {
+            border-bottom: 1px solid #f1f1f2;
+            height: 90px;
+            padding: 0 48px;
+        }
+
+        thead tr th.icon-cell {
+            max-width: 225px;
+            min-width: 120px;
+        }
+
+        thead tr th.date-cell {
+            padding-left: 30px !important;
+        }
+
+        thead tr th.url-cell {
+            padding-left: 15px !important;
+        }
+
+        .url-cell-direct {
+            word-break: break-all;
+            max-height: 24px;
+            font-family: HurmeGeometricSans2;
+            font-size: 18px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: .84px;
+            text-align: left;
+            margin-top: 10px;
+            text-decoration: underline;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 467px;
+        }
+
+        thead tr th.alexa-cell {
+            padding-right: 16px;
+            text-align: right;
+        }
+
+
+        thead tr th.moz-da-cell {
+            text-align: center;
+            padding-left: 60px;
+        }
+
+        thead tr th.total-traffic-cell {
+            text-align: right;
+            padding-right: 24px;
+            padding-left: 0;
+            width: 7%;
+        }
+
+        table.dataTable tr:nth-child(even) {
+            border-top: 1px solid #e7e8ec;
+            border-bottom: 1px solid #e7e8ec;
+            background-color: #fafbfc;
+        }
+
+        .traffic-sources-table td {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            font-family: HurmeGeometricSans2;
+            max-width: 360px;
+            vertical-align: middle;
+            padding: 0 18px;
+        }
+
+        .traffic-sources-table td.icon-cell {
+            padding: 15px 0;
+            height: 135px;
+            position: relative;
+        }
+
+        table div.icon-cell {
+            position: absolute;
+            left: 50px;
+            top: 15px;
+        }
+
+        .icon-cell img {
+            width: 100%;
+            max-width: 210px;
+            height: 145px;
+            border-radius: 2px;
+            min-width: 95px;
+            vertical-align: middle;
+            border: 0;
+        }
+
+        .date-url-cell {
+            padding-left: 16px;
+        }
+
+        .date-cell-top,
+        .date-url-cell-top {
+            font-family: HurmeGeometricSans2;
+            font-size: 28px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.38;
+            letter-spacing: .32px;
+            text-align: left;
+            color: #13224b;
+        }
+
+        .date-cell .type-date,
+        .date-url-cell .type-date {
+            display: flex;
+            align-items: center;
+        }
+
+        .date-cell .type-date .site-type,
+        .date-url-cell .type-date .site-type {
+            margin-right: 12px;
+            font-size: 22px;
+            width: 26px;
+            height: 26px;
+        }
+
+        .date-cell-value,
+        .date-url-cell-value {
+            font-family: HurmeGeometricSans2;
+            font-size: 20px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.8;
+            letter-spacing: .84px;
+            text-align: left;
+            color: #a0acb0;
+        }
+
+        .url-cell-value {
+            font-family: HurmeGeometricSans2;
+            font-size: 24px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: .7px;
+            text-align: left;
+        }
+
+        .url-cell-value a {
+            color: #1f2f59;
+            overflow-wrap: break-word;
+            word-break: break-all;
+            text-decoration: none;
+        }
+
+        td .alexa-cell .alexa-cell-value,
+        td .traffic-cell .traffic-cell-value {
+            font-family: HurmeGeometricSans2;
+            font-size: 32px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .72px;
+            text-align: right;
+            color: #485985;
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            -webkit-text-decoration-style: dashed;
+            padding-top: 4px;
+        }
+
+        .alexa-cell-change,
+        .traffic-cell-change {
+            font-family: HurmeGeometricSans2;
+            font-size: 28px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .98px;
+            text-align: right;
+            color: #485984;
+            width: 100%;
+            padding-top: 8px;
+        }
+
+        .alexa-cell-change img,
+        .traffic-cell-change img {
+            margin-right: 9px;
+            width: 21px;
+            height: 15px;
+        }
+
+        div.moz-da-cell {
+            padding: 0 15px;
+        }
+
+        .traffic-sources-table td.moz-da-cell {
+            padding-top: 5px;
+        }
+
+        .moz-da-cell-rect {
+            display: inline;
+        }
+
+        .moz-da-cell-value {
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            -webkit-text-decoration-style: dashed;
+            font-family: HurmeGeometricSans2;
+            font-size: 32px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .72px;
+            text-align: center;
+            color: #485985;
+            padding-bottom: 18px;
+        }
+
+        .moz-da-cell-scale {
+            height: 12px;
+            border-radius: 7px;
+            border: none;
+            margin: 0;
+            width: 60%;
+            margin-right: 15px;
+            display: inline-block;
+        }
+
+        .moz-da-cell-value {
+            display: inline;
+        }
+
+        .moz-da-cell-participant-count {
+            font-family: HurmeGeometricSans2;
+            font-size: 24px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .98px;
+            text-align: right;
+            color: #485985;
+            padding-right: 12px;
+            margin-top: 14px;
+        }
+
+        .value-green {
+            color: #5bbc2e !important;
+            opacity: 1;
+        }
+
+        svg.negative-trend,
+        svg.positive-trend {
+            width: 21px;
+            height: 12px;
+        }
+
+        .alexa-cell-change .positive svg.negative-trend {
+            display: none;
+        }
+
+        .alexa-cell-change .negative svg.positive-trend {
+            display: none;
+        }
+
+        td.site-categories-cell {
+            text-align: left;
+            padding-left: 45px !important;
+        }
+
+        div.site-categories-cell {
+            font-family: HurmeGeometricSans2;
+            font-size: 24px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .6px;
+            color: #485985;
+            padding-top: 6px;
+            text-transform: capitalize;
+        }
+
+        .organizations-cell-div {
+            position: relative;
+            padding: 15px 0;
+        }
+
+        td.organizations-cell .organization-name-cell,
+        .earnedmedia-view .card-organizations-content .card-organization-name {
+            font-family: HurmeGeometricSans2;
+            font-size: 22px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.57;
+            letter-spacing: .28px;
+            text-align: left;
+            color: #13224b;
+            text-transform: capitalize;
+            margin: 0;
+        }
+
+        td.organizations-cell .organization-name-cell img,
+        .earnedmedia-view .card-organizations-content .card-organization-name img {
+            margin-left: 7px;
+            margin-right: 20px;
+            width: 24px;
+            vertical-align: text-bottom;
+        }
+
+
+        .title-wrapper {
+            padding: 45px 48px 32px 45px;
+            background-color: #fff;
+            border-bottom: 1px solid #f0f4f7;
+        }
+
+        .title-wrapper .details-title-block {
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .title-wrapper .image-wrapper {
+            overflow: hidden;
+            max-height: 135px;
+            border-radius: 2px;
+        }
+
+        .title-wrapper .details-title-info {
+            margin-left: 45px;
+            margin-right: 45px;
+            flex-grow: 2;
+        }
+
+        .details-title-info .details-captured {
+            font-family: HurmeGeometricSans2;
+            font-size: 22px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: .7px;
+            text-align: left;
+            color: #a0acb0;
+        }
+
+        .details-title-info .details-header {
+            margin: 0;
+            font-family: HurmeGeometricSans2;
+            font-size: 42px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.37;
+            letter-spacing: 1.12px;
+            text-align: left;
+            color: #13224b;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="title-wrapper">
+        <div class="details-title-block">
+            <div class="image-wrapper"><img width="216" src="test/img.jpg"></div>
+            <div class="details-title-info">
+                <span class="details-captured">3/2/2019 12:00:00 AM</span>
+                <h1 class="details-header">Bridge to Scotland 'about as feasible as building a bridge to the moon'</h1>
+            </div>
+        </div>
+    </div>
+    <div class="list-view-wrapper">
+        <div id="table-placeholder" style="display: block;">
+            <div id="trafficSourcesTable_wrapper" class="dataTables_wrapper no-footer">
+                <table id="trafficSourcesTable" class="traffic-sources-table dataTable no-footer" width="100%" role="grid" aria-describedby="trafficSourcesTable_info" style="width: 100%;">
+                    <thead>
+                        <tr role="row">
+                            <th class="icon-cell sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">Screenshot</th>
+                            <th class="date-url-cell sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" style="width:20%">Date</th>
+                            <th class="url-cell sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" style="width:20%">URL &amp; Direct URL</th>
+                            <th class="alexa-cell has-tooltip sorting_asc" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" aria-sort="ascending">Alexa Traffic<br>(Global)</th>
+                            <th class="moz-da-cell has-tooltip sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">MOZ DA</th>
+                            <th class="total-traffic-cell sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">Total Traffic</th>
+                            <th class="site-categories-cell overlap sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">Site Categories</th>
+                            <th class="organizations-cell has-tooltip sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">Organization / Sentiment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr role="row" class="odd">
+                            <td class=" icon-cell">
+                                <div class="icon-cell"><img width="90" src="test/GetCompanyLogo.png">
+                                </div>
+                            </td>
+                            <td class=" date-url-cell">
+                                <div class="date-url-cell">
+                                    <div class="date-url-cell-top get-white">Apple to reopen about 100 U.S. stores, most with curbside pickup</div>
+                                    <div class="type-date">
+                                        <div class="site-type"><img class="site-type" src="img/N-icon.svg"></div>
+                                        <div class="date-url-cell-value get-white">01:06 PM ET 05/26/20</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class=" url-cell">
+                                <div class="url-cell">
+                                    <div class="url-cell-value"><a class="get-white" target="_blank" href="https://sg.news.yahoo.com">https://sg.news.yahoo.com</a>
+                                        <div class="url-cell-direct"><a class="get-white" target="_blank" href="https://sg.news.yahoo.com/apple-reopen-100-stores-u-170625394.html">https://sg.news.yahoo.com/apple-reopen-100-stores-u-170625394.html</a></div>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="alexa-cell has-tooltip sorting_1">
+                                <div class="alexa-cell">
+                                    <div class="alexa-cell-value get-white" data-index="0"><span class="hit-area">12</span></div>
+                                    <div class="alexa-cell-change  get-white">
+                                        <div class="negative">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                                <defs>
+                                                    <style>
+                                                        .cls-1 {
+                                                            fill: #ed3424
+                                                        }
+
+                                                    </style>
+                                                </defs>
+                                                <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                                <defs>
+                                                    <style>
+                                                        .cls-2 {
+                                                            fill: #5bbc2e
+                                                        }
+
+                                                    </style>
+                                                </defs>
+                                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                            </svg>
+                                            <span>22</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class=" moz-da-cell has-tooltip">
+                                <div class="moz-da-cell">
+                                    <div class="moz-da-cell-rect">
+                                        <hr style="background: -webkit-linear-gradient(left, #13224b 90%, #13224b 90%, #d7dbde 10%); background: -o-linear-gradient(left, #13224b 90%, #13224b 90%, #d7dbde 10%); background: linear-gradient(to right, #485985 90%, #d7dbde 90%, #d7dbde 10%); " class="moz-da-cell-scale">
+                                    </div>
+                                    <div class="moz-da-cell-value get-white" data-index="0"><span class="hit-area">90</span></div>
+                                    <div class="moz-da-cell-participant-count get-white">2</div>
+                                </div>
+                            </td>
+                            <td class="total-traffic-cell">
+                                <div class="traffic-cell">
+                                    <div class="traffic-cell-value get-white"><span class="hit-area">0</span></div>
+                                    <div class="traffic-cell-change  get-white"><img width="18" src="img/positive-trend.svg"> 0</div>
+                                </div>
+                            </td>
+                            <td class="site-categories-cell overlap">
+                                <div class="site-categories-cell">media</div>
+                            </td>
+                            <td class=" organizations-cell has-tooltip">
+                                <div class="organizations-cell-div">
+                                    <div class="organizations-list">
+                                        <p class="organization-name-cell">apple inc.<img src="img/smile_negative.svg"></p>
+                                        <p class="organization-name-cell">apple<img src="img/smile_negative.svg"></p>
+                                        <p class="organization-name-cell">apple inc<img src="img/smile_neutral.svg"></p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td class="icon-cell">
+                                <div class="icon-cell"><img width="90" src="test/GetCompanyLogo.png">
+                                </div>
+                            </td>
+                            <td class=" date-url-cell">
+                                <div class="date-url-cell">
+                                    <div class="date-url-cell-top get-white">Micro-LED Market Worth $18,835 Million by 2026 - Exclusive Report by MarketsandMarketsâ„¢</div>
+                                    <div class="type-date">
+                                        <div class="site-type"><img class="site-type" src="img/D-icon.svg"></div>
+                                        <div class="date-url-cell-value get-white">09:30 AM ET 05/27/20</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class=" url-cell">
+                                <div class="url-cell">
+                                    <div class="url-cell-value"><a class="get-white" target="_blank" href="https://finance.yahoo.com">https://finance.yahoo.com</a>
+                                        <div class="url-cell-direct"><a class="get-white" target="_blank" href="https://finance.yahoo.com/news/micro-led-market-worth-18-133000893.html">https://finance.yahoo.com/news/micro-led-market-worth-18-133000893.html</a></div>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="alexa-cell has-tooltip sorting_1">
+                                <div class="alexa-cell">
+                                    <div class="alexa-cell-value get-white" data-index="1"><span class="hit-area">12</span></div>
+                                    <div class="alexa-cell-change  get-white">
+                                        <div class="positive">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                                <defs>
+                                                    <style>
+                                                        .cls-1 {
+                                                            fill: #ed3424
+                                                        }
+
+                                                    </style>
+                                                </defs>
+                                                <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                                <defs>
+                                                    <style>
+                                                        .cls-2 {
+                                                            fill: #5bbc2e
+                                                        }
+
+                                                    </style>
+                                                </defs>
+                                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                            </svg>
+                                            <span>22</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class=" moz-da-cell has-tooltip">
+                                <div class="moz-da-cell">
+                                    <div class="moz-da-cell-rect">
+                                        <hr style="background: -webkit-linear-gradient(left, #13224b 90%, #13224b 90%, #d7dbde 10%); background: -o-linear-gradient(left, #13224b 90%, #13224b 90%, #d7dbde 10%); background: linear-gradient(to right, #485985 90%, #d7dbde 90%, #d7dbde 10%); " class="moz-da-cell-scale">
+                                    </div>
+                                    <div class="moz-da-cell-value get-white" data-index="1"><span class="hit-area">90</span></div>
+                                    <div class="moz-da-cell-participant-count get-white">1</div>
+                                </div>
+                            </td>
+                            <td class=" total-traffic-cell">
+                                <div class="traffic-cell">
+                                    <div class="traffic-cell-value get-white"><span class="hit-area">0</span></div>
+                                    <div class="traffic-cell-change  get-white"><img width="18" src="img/positive-trend.svg"> 0</div>
+                                </div>
+                            </td>
+                            <td class=" site-categories-cell overlap">
+                                <div class="site-categories-cell">investing, financial news, finance</div>
+                            </td>
+                            <td class=" organizations-cell has-tooltip">
+                                <div class="organizations-cell-div">
+                                    <div class="organizations-list">
+                                        <p class="organization-name-cell">sony<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">sony corp.<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">jbd inc.<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">sharp<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">x-celeprint ltd.<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">apple inc.<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">glo ab<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">apac<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">samsung electronics<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">samsung electronics co., ltd.<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">cagr<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">lg display<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">epistar corporation<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">panasonic<img src="img/smile_neutral.svg"></p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

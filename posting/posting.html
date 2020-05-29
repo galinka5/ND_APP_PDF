@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Posting</title>
+    <style>
+        @font-face {
+            font-family: HurmeGeometricSans1-Bold;
+            font-style: normal;
+            font-weight: 700;
+            src: local("HurmeGeometricSans1-Bold"), local("HurmeGeometricSans1-Bold"), url("fonts/Hurme-HurmeGeometricSans1-Bold.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans2-Bold;
+            font-style: normal;
+            font-weight: 700;
+            src: local("HurmeGeometricSans2-Bold"), local("HurmeGeometricSans2-Bold"), url("fonts/Hurme-HurmeGeometricSans2-Bold.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans2;
+            font-style: normal;
+            font-weight: 700;
+            src: local("HurmeGeometricSans2-Bold"), local("HurmeGeometricSans2-Bold"), url("fonts/Hurme-HurmeGeometricSans2-Bold.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans2;
+            font-style: normal;
+            font-weight: 300;
+            src: local("HurmeGeometricSans2-Regular"), local("HurmeGeometricSans2-Regular"), url("fonts/Hurme-HurmeGeometricSans2-Regular.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: HurmeGeometricSans1;
+            font-style: normal;
+            font-weight: 400;
+            src: local("HurmeGeometricSans1"), local("HurmeGeometricSans1"), url("fonts/Hurme-HurmeGeometricSans1-Regular.otf") format("opentype");
+        }
+
+
+        .list-view-wrapper {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            min-height: 200px;
+        }
+
+        .dataTables_wrapper {
+            position: relative;
+            clear: both;
+            zoom: 1;
+        }
+
+        #trafficSourcesTable {
+            width: 100%;
+            table-layout: fixed;
+            border-bottom: 1px solid rgba(11, 21, 39, .12);
+            margin: 0;
+            border-collapse: collapse;
+            box-sizing: content-box;
+            background-color: transparent;
+        }
+
+        .traffic-sources-table thead {
+            font-family: HurmeGeometricSans2;
+            font-size: 22px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 1px;
+            text-align: left;
+            color: #a0acb0;
+            border: solid 1px #f1f1f2;
+            background-color: #fafbfc;
+        }
+
+        table.dataTable thead th,
+        table.dataTable thead td {
+            border-bottom: 1px solid #f1f1f2;
+            height: 90px;
+            padding: 0 48px;
+        }
+
+        thead tr th.icon-cell {
+            max-width: 225px;
+            min-width: 120px;
+        }
+
+        thead tr th.date-cell {
+            padding-left: 30px !important;
+        }
+
+        thead tr th.url-cell {
+            padding-left: 15px !important;
+        }
+
+        thead tr th.alexa-cell {
+            padding-right: 16px;
+            text-align: right;
+        }
+
+
+        thead tr th.moz-da-cell {
+            text-align: center;
+            padding-left: 60px;
+        }
+
+        thead tr th.total-traffic-cell {
+            text-align: right;
+            padding-right: 24px;
+        }
+
+        table.dataTable tr:nth-child(even) {
+            border-top: 1px solid #e7e8ec;
+            border-bottom: 1px solid #e7e8ec;
+            background-color: #fafbfc;
+        }
+
+        .traffic-sources-table td {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            font-family: HurmeGeometricSans2;
+            max-width: 360px;
+            vertical-align: middle;
+            padding: 0 18px;
+        }
+
+        .traffic-sources-table td.icon-cell {
+            padding: 15px 0;
+            height: 135px;
+            position: relative;
+        }
+
+        table div.icon-cell {
+            position: absolute;
+            left: 50px;
+            top: 15px;
+        }
+
+        .icon-cell img {
+            width: 100%;
+            max-width: 210px;
+            height: 145px;
+            border-radius: 2px;
+            min-width: 95px;
+            vertical-align: middle;
+            border: 0;
+        }
+
+        .posting-view div.date-cell {
+            padding-left: 15px;
+            padding-top: 7px;
+        }
+
+        .posting-view .date-cell-top {
+            padding-left: 0;
+        }
+
+        .date-cell-top,
+        .date-url-cell-top {
+            font-family: HurmeGeometricSans2;
+            font-size: 28px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.38;
+            letter-spacing: .32px;
+            text-align: left;
+            color: #13224b;
+        }
+
+        .date-cell-value,
+        .date-url-cell-value {
+            font-family: HurmeGeometricSans2;
+            font-size: 20px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.8;
+            letter-spacing: .84px;
+            text-align: left;
+            color: #a0acb0;
+        }
+
+        .url-cell-value {
+            font-family: HurmeGeometricSans2;
+            font-size: 24px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: .7px;
+            text-align: left;
+        }
+
+        .url-cell-value a {
+            color: #1f2f59;
+            overflow-wrap: break-word;
+            word-break: break-all;
+            text-decoration: none;
+        }
+
+        td .alexa-cell .alexa-cell-value,
+        td .traffic-cell .traffic-cell-value {
+            font-family: HurmeGeometricSans2;
+            font-size: 32px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .72px;
+            text-align: right;
+            color: #485985;
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            -webkit-text-decoration-style: dashed;
+            padding-top: 4px;
+        }
+
+        .alexa-cell-change,
+        .traffic-cell-change {
+            font-family: HurmeGeometricSans2;
+            font-size: 28px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .98px;
+            text-align: right;
+            color: #485984;
+            width: 100%;
+            padding-top: 8px;
+        }
+
+        .alexa-cell-change img,
+        .traffic-cell-change img {
+            margin-right: 9px;
+            width: 21px;
+            height: 15px;
+        }
+
+        div.moz-da-cell {
+            padding: 0 15px;
+        }
+
+        .moz-da-cell-value {
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            -webkit-text-decoration-style: dashed;
+            font-family: HurmeGeometricSans2;
+            font-size: 32px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: .72px;
+            text-align: center;
+            color: #485985;
+            padding-bottom: 18px;
+        }
+
+        .moz-da-cell-scale {
+            height: 12px;
+            border-radius: 7px;
+            border: none;
+            margin: 0;
+            width: 100%;
+        }
+
+        td.charts-cell {
+            padding-right: 48px;
+        }
+
+        .charts-cell-chart-div {
+            position: relative;
+            width: 150px;
+            height: 100%;
+            float: right;
+        }
+
+        .value-green {
+            color: #5bbc2e !important;
+            opacity: 1;
+        }
+
+        svg.negative-trend,
+        svg.positive-trend {
+            width: 21px;
+            height: 12px;
+        }
+
+        .alexa-cell-change .positive svg.negative-trend {
+            display: none;
+        }
+
+        .alexa-cell-change .negative svg.positive-trend {
+            display: none;
+        }
+
+
+        .title-wrapper {
+            padding: 45px 48px 32px 45px;
+            background-color: #fff;
+            border-bottom: 1px solid #f0f4f7;
+        }
+
+        .title-wrapper .details-title-block {
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .title-wrapper .image-wrapper {
+            overflow: hidden;
+            max-height: 135px;
+            border-radius: 2px;
+        }
+
+        .title-wrapper .details-title-info {
+            margin-left: 45px;
+            margin-right: 45px;
+            flex-grow: 2;
+        }
+
+        .details-title-info .details-captured {
+            font-family: HurmeGeometricSans2;
+            font-size: 22px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: .7px;
+            text-align: left;
+            color: #a0acb0;
+        }
+
+        .details-title-info .details-header {
+            margin: 0;
+            font-family: HurmeGeometricSans2;
+            font-size: 42px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.37;
+            letter-spacing: 1.12px;
+            text-align: left;
+            color: #13224b;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="title-wrapper">
+        <div class="details-title-block">
+            <div class="image-wrapper"><img width="216" src="test/img.jpg"></div>
+            <div class="details-title-info">
+                <span class="details-captured">3/2/2019 12:00:00 AM</span>
+                <h1 class="details-header">Bridge to Scotland 'about as feasible as building a bridge to the moon'</h1>
+            </div>
+        </div>
+    </div>
+    <div class="list-view-wrapper">
+        <div id="table-placeholder" style="display: block;">
+            <div id="trafficSourcesTable_wrapper" class="dataTables_wrapper no-footer">
+                <table id="trafficSourcesTable" class="traffic-sources-table dataTable no-footer" width="100%" role="grid" aria-describedby="trafficSourcesTable_info" style="width: 100%;">
+                    <thead>
+                        <tr role="row">
+                            <th class="icon-cell has-tooltip sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" width="12%">Screenshot</th>
+                            <th class="date-cell sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" width="15%">Date<span class="ts-tooltip"></span></th>
+                            <th class="url-cell sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" width="30%">URL &amp; Direct URL</th>
+                            <th class="alexa-cell has-tooltip sorting_asc" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" width="12%">Alexa Traffic (Global)</th>
+                            <th class="moz-da-cell has-tooltip sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" width=12%>MOZ DA</th>
+                            <th class="total-traffic-cell overlap sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">Total Traffic</th>
+                            <th class="charts-cell sorting_disabled" rowspan="1" colspan="1"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr role="row" class="odd">
+                            <td class=" icon-cell has-tooltip">
+                                <div class="icon-cell"><img width="42" src="test/GetCompanyLogo.png">
+                                    <div class="list_img-overlay">
+                                        <div class="arrow"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class=" date-cell">
+                                <div class="date-cell">
+                                    <div class="date-cell-top get-white">Ask</div>
+                                    <div class="date-cell-value get-white">Captured 02:42 PM ET 11/12/19</div>
+                                </div>
+                            </td>
+                            <td class=" url-cell">
+                                <div class="url-cell">
+                                    <div class="url-cell-value"><a class="get-white" target="_blank" href="http://www.ask.com/">http://www.ask.com/</a>
+                                        <div class="url-cell-direct get-white"><a class="get-white" target="_blank" href="http://markets.ask.com/ask/news/read/39081576">http://markets.ask.com/ask/news/read/39081576</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="alexa-cell has-tooltip sorting_1">
+                                <div class="alexa-cell">
+                                    <div class="alexa-cell-value get-white" data-index="0"><span class="hit-area">204</span></div>
+                                    <div class="alexa-cell-change get-white">
+                                        <div class="negative">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                                <defs>
+                                                    <style>
+                                                        .cls-1 {
+                                                            fill: #ed3424
+                                                        }
+
+                                                    </style>
+                                                </defs>
+                                                <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                                <defs>
+                                                    <style>
+                                                        .cls-2 {
+                                                            fill: #5bbc2e
+                                                        }
+
+                                                    </style>
+                                                </defs>
+                                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                            </svg>
+                                            <span>22</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class=" moz-da-cell has-tooltip">
+                                <div class="moz-da-cell">
+                                    <div class="moz-da-cell-value get-white" data-index="0"><span class="hit-area">90</span></div>
+                                    <div class="moz-da-cell-rect">
+                                        <hr style="background: -webkit-linear-gradient(left, #13224b 90%, #13224b 90%, #d7dbde 10%); background: -o-linear-gradient(left, #13224b 90%, #13224b 90%, #d7dbde 10%); background: linear-gradient(to right, #485985 90%, #d7dbde 90%, #d7dbde 10%); " class="moz-da-cell-scale">
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td class=" total-traffic-cell overlap">
+                                <div class="traffic-cell">
+                                    <div class="traffic-cell-value">85,936,758</div>
+                                    <div class="traffic-cell-change value-green">+0%</div>
+                                </div>
+                            </td>
+                            <td class=" charts-cell">
+                                <div class="charts-cell-chart-div">
+                                    <div class="charts-cell-chart" id="cellChart0" data-highcharts-chart="0">
+                                        <div id="highcharts-nen4pd3-0" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 150px; height: 60px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="150" height="60" viewBox="0 0 100 40">
+                                                <desc>Created with Highstock 6.0.3</desc>
+                                                <defs>
+                                                    <clipPath id="highcharts-nen4pd3-1">
+                                                        <rect x="0" y="0" width="100" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <clipPath id="highcharts-nen4pd3-3">
+                                                        <rect x="0" y="0" width="100" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-nen4pd3-4">
+                                                        <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                        <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0.24"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <rect fill="transparent" class="highcharts-background" x="0" y="0" width="100" height="40" rx="0" ry="0"></rect>
+                                                <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="100" height="40"></rect>
+                                                <g class="highcharts-pane-group"></g>
+                                                <g class="highcharts-grid highcharts-xaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 34.5 0 L 34.5 40" opacity="1"></path>
+                                                </g>
+                                                <g class="highcharts-grid highcharts-yaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 40.5 L 100 40.5" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 100 0.5" opacity="1"></path>
+                                                </g>
+                                                <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="100" height="40"></rect>
+                                                <g class="highcharts-axis highcharts-xaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 0 40 L 100 40"></path>
+                                                </g>
+                                                <g class="highcharts-axis highcharts-yaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 100 0 L 100 40"></path>
+                                                </g>
+                                                <g class="highcharts-series-group">
+                                                    <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-nen4pd3-3)">
+                                                        <path fill="url(#highcharts-nen4pd3-4)" d="M 0 35.512499999999996 L 1.3157894735934 35.55 L 2.6315789474333 35.85820000000002 L 3.9473684210267 35.35 L 5.26315789462 35.35 L 6.57894736846 35.25414285714284 L 7.8947368420533 35.19264285714286 L 9.2105263158933 35.15016666666668 L 10.526315789487 34.87500000000001 L 11.84210526308 34.418749999999996 L 13.15789473692 34.22812500000003 L 14.473684210513 33.7875 L 15.789473684107 33.60416666666666 L 17.105263157947 33.27222222222222 L 18.42105263154 33.0719375 L 19.73684210538 32.90312499999999 L 21.052631578973 32.799999999999976 L 22.368421052567 32.81071428571426 L 23.684210526407 32.99500000000002 L 25 32.28450000000002 L 26.315789473593 32.58369999999999 L 27.631578947433 33.00000000000001 L 28.947368421027 32.82116666666667 L 30.26315789462 33.00000000000001 L 31.57894736846 32.37500000000001 L 32.894736842053 33.00049999999999 L 34.210526315893 33.00000000000001 L 35.526315789487 33.00000000000001 L 36.84210526308 30.04999999999999 L 38.15789473692 23.200000000000003 L 39.473684210513 20 L 40.789473684107 20 L 42.105263157947 20.500000000000007 L 43.42105263154 20 L 44.73684210538 20.999750000000006 L 46.052631578973 17.5 L 47.368421052567 20.04999999999999 L 48.684210526407 15.900700000000008 L 50 10.988555555555521 L 51.315789473593 12.7392857142857 L 52.631578947433 12.151950000000014 L 53.947368421027 11.066388888888916 L 55.26315789462 11.870900000000013 L 56.57894736846 15.715000000000003 L 57.894736842053 16.096799999999973 L 59.210526315893 15.890222222222192 L 60.526315789487 16.973666666666674 L 61.84210526308 17.783333333333324 L 63.15789473692 18.334599999999952 L 64.473684210513 16.967857142857135 L 65.789473684107 15.911111111111147 L 67.105263157947 15.454312499999965 L 68.42105263154 14.799999999999969 L 69.73684210538 13.3071428571429 L 71.052631578973 14.050000000000011 L 72.368421052567 14.503571428571469 L 73.684210526407 15.59062499999996 L 75 15.865625000000065 L 76.315789473593 15.219687499999992 L 77.631578947433 13.513888888888879 L 78.947368421027 12.67777777777777 L 80.26315789462 11.662500000000016 L 81.57894736846 11.764285714285734 L 82.894736842053 11.144444444444481 L 84.210526315893 10.569444444444436 L 85.526315789487 10.116666666666667 L 86.84210526308 9.640625000000007 L 88.15789473692 10.118888888888868 L 89.473684210513 11.970000000000027 L 90.789473684107 11.946875000000006 L 92.105263157947 11.699214285714277 L 93.42105263154 11.528571428571475 L 94.73684210538 12.382055555555525 L 96.052631578973 12.710000000000008 L 97.368421052567 12.147500000000022 L 98.684210526407 11.882499999999965 L 100 11.29999999999999 L 100 40 L 98.684210526407 40 L 97.368421052567 40 L 96.052631578973 40 L 94.73684210538 40 L 93.42105263154 40 L 92.105263157947 40 L 90.789473684107 40 L 89.473684210513 40 L 88.15789473692 40 L 86.84210526308 40 L 85.526315789487 40 L 84.210526315893 40 L 82.894736842053 40 L 81.57894736846 40 L 80.26315789462 40 L 78.947368421027 40 L 77.631578947433 40 L 76.315789473593 40 L 75 40 L 73.684210526407 40 L 72.368421052567 40 L 71.052631578973 40 L 69.73684210538 40 L 68.42105263154 40 L 67.105263157947 40 L 65.789473684107 40 L 64.473684210513 40 L 63.15789473692 40 L 61.84210526308 40 L 60.526315789487 40 L 59.210526315893 40 L 57.894736842053 40 L 56.57894736846 40 L 55.26315789462 40 L 53.947368421027 40 L 52.631578947433 40 L 51.315789473593 40 L 50 40 L 48.684210526407 40 L 47.368421052567 40 L 46.052631578973 40 L 44.73684210538 40 L 43.42105263154 40 L 42.105263157947 40 L 40.789473684107 40 L 39.473684210513 40 L 38.15789473692 40 L 36.84210526308 40 L 35.526315789487 40 L 34.210526315893 40 L 32.894736842053 40 L 31.57894736846 40 L 30.26315789462 40 L 28.947368421027 40 L 27.631578947433 40 L 26.315789473593 40 L 25 40 L 23.684210526407 40 L 22.368421052567 40 L 21.052631578973 40 L 19.73684210538 40 L 18.42105263154 40 L 17.105263157947 40 L 15.789473684107 40 L 14.473684210513 40 L 13.15789473692 40 L 11.84210526308 40 L 10.526315789487 40 L 9.2105263158933 40 L 7.8947368420533 40 L 6.57894736846 40 L 5.26315789462 40 L 3.9473684210267 40 L 2.6315789474333 40 L 1.3157894735934 40 L 0 40" class="highcharts-area"></path>
+                                                        <path fill="none" d="M 0 35.512499999999996 L 1.3157894735934 35.55 L 2.6315789474333 35.85820000000002 L 3.9473684210267 35.35 L 5.26315789462 35.35 L 6.57894736846 35.25414285714284 L 7.8947368420533 35.19264285714286 L 9.2105263158933 35.15016666666668 L 10.526315789487 34.87500000000001 L 11.84210526308 34.418749999999996 L 13.15789473692 34.22812500000003 L 14.473684210513 33.7875 L 15.789473684107 33.60416666666666 L 17.105263157947 33.27222222222222 L 18.42105263154 33.0719375 L 19.73684210538 32.90312499999999 L 21.052631578973 32.799999999999976 L 22.368421052567 32.81071428571426 L 23.684210526407 32.99500000000002 L 25 32.28450000000002 L 26.315789473593 32.58369999999999 L 27.631578947433 33.00000000000001 L 28.947368421027 32.82116666666667 L 30.26315789462 33.00000000000001 L 31.57894736846 32.37500000000001 L 32.894736842053 33.00049999999999 L 34.210526315893 33.00000000000001 L 35.526315789487 33.00000000000001 L 36.84210526308 30.04999999999999 L 38.15789473692 23.200000000000003 L 39.473684210513 20 L 40.789473684107 20 L 42.105263157947 20.500000000000007 L 43.42105263154 20 L 44.73684210538 20.999750000000006 L 46.052631578973 17.5 L 47.368421052567 20.04999999999999 L 48.684210526407 15.900700000000008 L 50 10.988555555555521 L 51.315789473593 12.7392857142857 L 52.631578947433 12.151950000000014 L 53.947368421027 11.066388888888916 L 55.26315789462 11.870900000000013 L 56.57894736846 15.715000000000003 L 57.894736842053 16.096799999999973 L 59.210526315893 15.890222222222192 L 60.526315789487 16.973666666666674 L 61.84210526308 17.783333333333324 L 63.15789473692 18.334599999999952 L 64.473684210513 16.967857142857135 L 65.789473684107 15.911111111111147 L 67.105263157947 15.454312499999965 L 68.42105263154 14.799999999999969 L 69.73684210538 13.3071428571429 L 71.052631578973 14.050000000000011 L 72.368421052567 14.503571428571469 L 73.684210526407 15.59062499999996 L 75 15.865625000000065 L 76.315789473593 15.219687499999992 L 77.631578947433 13.513888888888879 L 78.947368421027 12.67777777777777 L 80.26315789462 11.662500000000016 L 81.57894736846 11.764285714285734 L 82.894736842053 11.144444444444481 L 84.210526315893 10.569444444444436 L 85.526315789487 10.116666666666667 L 86.84210526308 9.640625000000007 L 88.15789473692 10.118888888888868 L 89.473684210513 11.970000000000027 L 90.789473684107 11.946875000000006 L 92.105263157947 11.699214285714277 L 93.42105263154 11.528571428571475 L 94.73684210538 12.382055555555525 L 96.052631578973 12.710000000000008 L 97.368421052567 12.147500000000022 L 98.684210526407 11.882499999999965 L 100 11.29999999999999" class="highcharts-graph" stroke="#6fc9ab" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path fill="none" d="M -10 35.512499999999996 L 0 35.512499999999996 L 1.3157894735934 35.55 L 2.6315789474333 35.85820000000002 L 3.9473684210267 35.35 L 5.26315789462 35.35 L 6.57894736846 35.25414285714284 L 7.8947368420533 35.19264285714286 L 9.2105263158933 35.15016666666668 L 10.526315789487 34.87500000000001 L 11.84210526308 34.418749999999996 L 13.15789473692 34.22812500000003 L 14.473684210513 33.7875 L 15.789473684107 33.60416666666666 L 17.105263157947 33.27222222222222 L 18.42105263154 33.0719375 L 19.73684210538 32.90312499999999 L 21.052631578973 32.799999999999976 L 22.368421052567 32.81071428571426 L 23.684210526407 32.99500000000002 L 25 32.28450000000002 L 26.315789473593 32.58369999999999 L 27.631578947433 33.00000000000001 L 28.947368421027 32.82116666666667 L 30.26315789462 33.00000000000001 L 31.57894736846 32.37500000000001 L 32.894736842053 33.00049999999999 L 34.210526315893 33.00000000000001 L 35.526315789487 33.00000000000001 L 36.84210526308 30.04999999999999 L 38.15789473692 23.200000000000003 L 39.473684210513 20 L 40.789473684107 20 L 42.105263157947 20.500000000000007 L 43.42105263154 20 L 44.73684210538 20.999750000000006 L 46.052631578973 17.5 L 47.368421052567 20.04999999999999 L 48.684210526407 15.900700000000008 L 50 10.988555555555521 L 51.315789473593 12.7392857142857 L 52.631578947433 12.151950000000014 L 53.947368421027 11.066388888888916 L 55.26315789462 11.870900000000013 L 56.57894736846 15.715000000000003 L 57.894736842053 16.096799999999973 L 59.210526315893 15.890222222222192 L 60.526315789487 16.973666666666674 L 61.84210526308 17.783333333333324 L 63.15789473692 18.334599999999952 L 64.473684210513 16.967857142857135 L 65.789473684107 15.911111111111147 L 67.105263157947 15.454312499999965 L 68.42105263154 14.799999999999969 L 69.73684210538 13.3071428571429 L 71.052631578973 14.050000000000011 L 72.368421052567 14.503571428571469 L 73.684210526407 15.59062499999996 L 75 15.865625000000065 L 76.315789473593 15.219687499999992 L 77.631578947433 13.513888888888879 L 78.947368421027 12.67777777777777 L 80.26315789462 11.662500000000016 L 81.57894736846 11.764285714285734 L 82.894736842053 11.144444444444481 L 84.210526315893 10.569444444444436 L 85.526315789487 10.116666666666667 L 86.84210526308 9.640625000000007 L 88.15789473692 10.118888888888868 L 89.473684210513 11.970000000000027 L 90.789473684107 11.946875000000006 L 92.105263157947 11.699214285714277 L 93.42105263154 11.528571428571475 L 94.73684210538 12.382055555555525 L 96.052631578973 12.710000000000008 L 97.368421052567 12.147500000000022 L 98.684210526407 11.882499999999965 L 100 11.29999999999999 L 110 11.29999999999999" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" class="highcharts-tracker"></path>
+                                                    </g>
+                                                    <g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(0,0) scale(1 1)"></g>
+                                                </g><text x="50" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="50" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                                <g class="highcharts-axis-labels highcharts-xaxis-labels "></g>
+                                                <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                            </svg></div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td class=" icon-cell has-tooltip">
+                                <div class="icon-cell"><img width="42" src="/performancereport/GetCompanyLogo?url=http://finance.azcentral.com/azcentral/news/read/39081576">
+                                    <div class="list_img-overlay">
+                                        <div class="arrow"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class=" date-cell">
+                                <div class="date-cell">
+                                    <div class="date-cell-top get-white">Milwaukee Wisconsin Journal Sentinel</div>
+                                    <div class="date-cell-value get-white">Captured 02:42 PM ET 11/12/19</div>
+                                </div>
+                            </td>
+                            <td class=" url-cell">
+                                <div class="url-cell">
+                                    <div class="url-cell-value"><a class="get-white" target="_blank" href="http://www.azcentral.com/">http://www.azcentral.com/</a>
+                                        <div class="url-cell-direct get-white"><a class="get-white" target="_blank" href="http://finance.azcentral.com/azcentral/news/read/39081576">http://finance.azcentral.com/azcentral/news/read/39081576</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="alexa-cell has-tooltip sorting_1">
+                                <div class="alexa-cell">
+                                    <div class="alexa-cell-value get-white" data-index="1"><span class="hit-area">7,084</span></div>
+                                    <div class="alexa-cell-change get-white">
+                                        <div class="positive">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                                <defs>
+                                                    <style>
+                                                        .cls-1 {
+                                                            fill: #ed3424
+                                                        }
+
+                                                    </style>
+                                                </defs>
+                                                <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                                <defs>
+                                                    <style>
+                                                        .cls-2 {
+                                                            fill: #5bbc2e
+                                                        }
+
+                                                    </style>
+                                                </defs>
+                                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                            </svg>
+                                            <span>1,470</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="moz-da-cell has-tooltip">
+                                <div class="moz-da-cell">
+                                    <div class="moz-da-cell-value get-white" data-index="1"><span class="hit-area">89</span></div>
+                                    <div class="moz-da-cell-rect">
+                                        <hr style="background: -webkit-linear-gradient(left, #13224b 89%, #13224b 89%, #d7dbde 11%); background: -o-linear-gradient(left, #13224b 89%, #13224b 89%, #d7dbde 11%); background: linear-gradient(to right, #485985 89%, #d7dbde 89%, #d7dbde 11%); " class="moz-da-cell-scale">
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td class=" total-traffic-cell overlap">
+                                <div class="traffic-cell">
+                                    <div class="traffic-cell-value">6,643,411</div>
+                                    <div class="traffic-cell-change value-green">+0%</div>
+                                </div>
+                            </td>
+                            <td class=" charts-cell">
+                                <div class="charts-cell-chart-div">
+                                    <div class="charts-cell-chart" id="cellChart1" data-highcharts-chart="1">
+                                        <div id="highcharts-nen4pd3-5" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 150px; height: 60px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); font-family: HurmeGeometricSans2;"><svg version="1.1" class="highcharts-root" style="font-family:HurmeGeometricSans2;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="150" height="60" viewBox="0 0 100 40">
+                                                <desc>Created with Highstock 6.0.3</desc>
+                                                <defs>
+                                                    <clipPath id="highcharts-nen4pd3-6">
+                                                        <rect x="0" y="0" width="100" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <clipPath id="highcharts-nen4pd3-8">
+                                                        <rect x="0" y="0" width="100" height="40" fill="none"></rect>
+                                                    </clipPath>
+                                                    <linearGradient x1="0" x2="0" y1="0" y2="1" id="highcharts-nen4pd3-9">
+                                                        <stop offset="0" stop-color="rgb(50,188,46)" stop-opacity="0.6"></stop>
+                                                        <stop offset="1" stop-color="rgb(91,188,46)" stop-opacity="0.24"></stop>
+                                                    </linearGradient>
+                                                </defs>
+                                                <rect fill="transparent" class="highcharts-background" x="0" y="0" width="100" height="40" rx="0" ry="0"></rect>
+                                                <rect fill="none" class="highcharts-plot-background" x="0" y="0" width="100" height="40"></rect>
+                                                <g class="highcharts-pane-group"></g>
+                                                <g class="highcharts-grid highcharts-xaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 34.5 0 L 34.5 40" opacity="1"></path>
+                                                </g>
+                                                <g class="highcharts-grid highcharts-yaxis-grid ">
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 40.5 L 100 40.5" opacity="1"></path>
+                                                    <path fill="none" class="highcharts-grid-line" d="M 0 0.5 L 100 0.5" opacity="1"></path>
+                                                </g>
+                                                <rect fill="none" class="highcharts-plot-border" x="0" y="0" width="100" height="40"></rect>
+                                                <g class="highcharts-axis highcharts-xaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 0 40 L 100 40"></path>
+                                                </g>
+                                                <g class="highcharts-axis highcharts-yaxis ">
+                                                    <path fill="none" class="highcharts-axis-line" d="M 100 0 L 100 40"></path>
+                                                </g>
+                                                <g class="highcharts-series-group">
+                                                    <g class="highcharts-series highcharts-series-0 highcharts-area-series " transform="translate(0,0) scale(1 1)" clip-path="url(#highcharts-nen4pd3-8)">
+                                                        <path fill="url(#highcharts-nen4pd3-9)" d="M 0 35.512499999999996 L 1.3157894735934 35.55 L 2.6315789474333 35.85820000000002 L 3.9473684210267 35.35 L 5.26315789462 35.35 L 6.57894736846 35.25414285714284 L 7.8947368420533 35.19264285714286 L 9.2105263158933 35.15016666666668 L 10.526315789487 34.87500000000001 L 11.84210526308 34.418749999999996 L 13.15789473692 34.22812500000003 L 14.473684210513 33.7875 L 15.789473684107 33.60416666666666 L 17.105263157947 33.27222222222222 L 18.42105263154 33.0719375 L 19.73684210538 32.90312499999999 L 21.052631578973 32.799999999999976 L 22.368421052567 32.81071428571426 L 23.684210526407 32.99500000000002 L 25 32.28450000000002 L 26.315789473593 32.58369999999999 L 27.631578947433 33.00000000000001 L 28.947368421027 32.82116666666667 L 30.26315789462 33.00000000000001 L 31.57894736846 32.37500000000001 L 32.894736842053 33.00049999999999 L 34.210526315893 33.00000000000001 L 35.526315789487 33.00000000000001 L 36.84210526308 30.04999999999999 L 38.15789473692 23.200000000000003 L 39.473684210513 20 L 40.789473684107 20 L 42.105263157947 20.500000000000007 L 43.42105263154 20 L 44.73684210538 20.999750000000006 L 46.052631578973 17.5 L 47.368421052567 20.04999999999999 L 48.684210526407 15.900700000000008 L 50 10.988555555555521 L 51.315789473593 12.7392857142857 L 52.631578947433 12.151950000000014 L 53.947368421027 11.066388888888916 L 55.26315789462 11.870900000000013 L 56.57894736846 15.715000000000003 L 57.894736842053 16.096799999999973 L 59.210526315893 15.890222222222192 L 60.526315789487 16.973666666666674 L 61.84210526308 17.783333333333324 L 63.15789473692 18.334599999999952 L 64.473684210513 16.967857142857135 L 65.789473684107 15.911111111111147 L 67.105263157947 15.454312499999965 L 68.42105263154 14.799999999999969 L 69.73684210538 13.3071428571429 L 71.052631578973 14.050000000000011 L 72.368421052567 14.503571428571469 L 73.684210526407 15.59062499999996 L 75 15.865625000000065 L 76.315789473593 15.219687499999992 L 77.631578947433 13.513888888888879 L 78.947368421027 12.67777777777777 L 80.26315789462 11.662500000000016 L 81.57894736846 11.764285714285734 L 82.894736842053 11.144444444444481 L 84.210526315893 10.569444444444436 L 85.526315789487 10.116666666666667 L 86.84210526308 9.640625000000007 L 88.15789473692 10.118888888888868 L 89.473684210513 11.970000000000027 L 90.789473684107 11.946875000000006 L 92.105263157947 11.699214285714277 L 93.42105263154 11.528571428571475 L 94.73684210538 12.382055555555525 L 96.052631578973 12.710000000000008 L 97.368421052567 12.147500000000022 L 98.684210526407 11.882499999999965 L 100 11.29999999999999 L 100 40 L 98.684210526407 40 L 97.368421052567 40 L 96.052631578973 40 L 94.73684210538 40 L 93.42105263154 40 L 92.105263157947 40 L 90.789473684107 40 L 89.473684210513 40 L 88.15789473692 40 L 86.84210526308 40 L 85.526315789487 40 L 84.210526315893 40 L 82.894736842053 40 L 81.57894736846 40 L 80.26315789462 40 L 78.947368421027 40 L 77.631578947433 40 L 76.315789473593 40 L 75 40 L 73.684210526407 40 L 72.368421052567 40 L 71.052631578973 40 L 69.73684210538 40 L 68.42105263154 40 L 67.105263157947 40 L 65.789473684107 40 L 64.473684210513 40 L 63.15789473692 40 L 61.84210526308 40 L 60.526315789487 40 L 59.210526315893 40 L 57.894736842053 40 L 56.57894736846 40 L 55.26315789462 40 L 53.947368421027 40 L 52.631578947433 40 L 51.315789473593 40 L 50 40 L 48.684210526407 40 L 47.368421052567 40 L 46.052631578973 40 L 44.73684210538 40 L 43.42105263154 40 L 42.105263157947 40 L 40.789473684107 40 L 39.473684210513 40 L 38.15789473692 40 L 36.84210526308 40 L 35.526315789487 40 L 34.210526315893 40 L 32.894736842053 40 L 31.57894736846 40 L 30.26315789462 40 L 28.947368421027 40 L 27.631578947433 40 L 26.315789473593 40 L 25 40 L 23.684210526407 40 L 22.368421052567 40 L 21.052631578973 40 L 19.73684210538 40 L 18.42105263154 40 L 17.105263157947 40 L 15.789473684107 40 L 14.473684210513 40 L 13.15789473692 40 L 11.84210526308 40 L 10.526315789487 40 L 9.2105263158933 40 L 7.8947368420533 40 L 6.57894736846 40 L 5.26315789462 40 L 3.9473684210267 40 L 2.6315789474333 40 L 1.3157894735934 40 L 0 40" class="highcharts-area"></path>
+                                                        <path fill="none" d="M 0 35.512499999999996 L 1.3157894735934 35.55 L 2.6315789474333 35.85820000000002 L 3.9473684210267 35.35 L 5.26315789462 35.35 L 6.57894736846 35.25414285714284 L 7.8947368420533 35.19264285714286 L 9.2105263158933 35.15016666666668 L 10.526315789487 34.87500000000001 L 11.84210526308 34.418749999999996 L 13.15789473692 34.22812500000003 L 14.473684210513 33.7875 L 15.789473684107 33.60416666666666 L 17.105263157947 33.27222222222222 L 18.42105263154 33.0719375 L 19.73684210538 32.90312499999999 L 21.052631578973 32.799999999999976 L 22.368421052567 32.81071428571426 L 23.684210526407 32.99500000000002 L 25 32.28450000000002 L 26.315789473593 32.58369999999999 L 27.631578947433 33.00000000000001 L 28.947368421027 32.82116666666667 L 30.26315789462 33.00000000000001 L 31.57894736846 32.37500000000001 L 32.894736842053 33.00049999999999 L 34.210526315893 33.00000000000001 L 35.526315789487 33.00000000000001 L 36.84210526308 30.04999999999999 L 38.15789473692 23.200000000000003 L 39.473684210513 20 L 40.789473684107 20 L 42.105263157947 20.500000000000007 L 43.42105263154 20 L 44.73684210538 20.999750000000006 L 46.052631578973 17.5 L 47.368421052567 20.04999999999999 L 48.684210526407 15.900700000000008 L 50 10.988555555555521 L 51.315789473593 12.7392857142857 L 52.631578947433 12.151950000000014 L 53.947368421027 11.066388888888916 L 55.26315789462 11.870900000000013 L 56.57894736846 15.715000000000003 L 57.894736842053 16.096799999999973 L 59.210526315893 15.890222222222192 L 60.526315789487 16.973666666666674 L 61.84210526308 17.783333333333324 L 63.15789473692 18.334599999999952 L 64.473684210513 16.967857142857135 L 65.789473684107 15.911111111111147 L 67.105263157947 15.454312499999965 L 68.42105263154 14.799999999999969 L 69.73684210538 13.3071428571429 L 71.052631578973 14.050000000000011 L 72.368421052567 14.503571428571469 L 73.684210526407 15.59062499999996 L 75 15.865625000000065 L 76.315789473593 15.219687499999992 L 77.631578947433 13.513888888888879 L 78.947368421027 12.67777777777777 L 80.26315789462 11.662500000000016 L 81.57894736846 11.764285714285734 L 82.894736842053 11.144444444444481 L 84.210526315893 10.569444444444436 L 85.526315789487 10.116666666666667 L 86.84210526308 9.640625000000007 L 88.15789473692 10.118888888888868 L 89.473684210513 11.970000000000027 L 90.789473684107 11.946875000000006 L 92.105263157947 11.699214285714277 L 93.42105263154 11.528571428571475 L 94.73684210538 12.382055555555525 L 96.052631578973 12.710000000000008 L 97.368421052567 12.147500000000022 L 98.684210526407 11.882499999999965 L 100 11.29999999999999" class="highcharts-graph" stroke="#6fc9ab" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                        <path fill="none" d="M -10 35.512499999999996 L 0 35.512499999999996 L 1.3157894735934 35.55 L 2.6315789474333 35.85820000000002 L 3.9473684210267 35.35 L 5.26315789462 35.35 L 6.57894736846 35.25414285714284 L 7.8947368420533 35.19264285714286 L 9.2105263158933 35.15016666666668 L 10.526315789487 34.87500000000001 L 11.84210526308 34.418749999999996 L 13.15789473692 34.22812500000003 L 14.473684210513 33.7875 L 15.789473684107 33.60416666666666 L 17.105263157947 33.27222222222222 L 18.42105263154 33.0719375 L 19.73684210538 32.90312499999999 L 21.052631578973 32.799999999999976 L 22.368421052567 32.81071428571426 L 23.684210526407 32.99500000000002 L 25 32.28450000000002 L 26.315789473593 32.58369999999999 L 27.631578947433 33.00000000000001 L 28.947368421027 32.82116666666667 L 30.26315789462 33.00000000000001 L 31.57894736846 32.37500000000001 L 32.894736842053 33.00049999999999 L 34.210526315893 33.00000000000001 L 35.526315789487 33.00000000000001 L 36.84210526308 30.04999999999999 L 38.15789473692 23.200000000000003 L 39.473684210513 20 L 40.789473684107 20 L 42.105263157947 20.500000000000007 L 43.42105263154 20 L 44.73684210538 20.999750000000006 L 46.052631578973 17.5 L 47.368421052567 20.04999999999999 L 48.684210526407 15.900700000000008 L 50 10.988555555555521 L 51.315789473593 12.7392857142857 L 52.631578947433 12.151950000000014 L 53.947368421027 11.066388888888916 L 55.26315789462 11.870900000000013 L 56.57894736846 15.715000000000003 L 57.894736842053 16.096799999999973 L 59.210526315893 15.890222222222192 L 60.526315789487 16.973666666666674 L 61.84210526308 17.783333333333324 L 63.15789473692 18.334599999999952 L 64.473684210513 16.967857142857135 L 65.789473684107 15.911111111111147 L 67.105263157947 15.454312499999965 L 68.42105263154 14.799999999999969 L 69.73684210538 13.3071428571429 L 71.052631578973 14.050000000000011 L 72.368421052567 14.503571428571469 L 73.684210526407 15.59062499999996 L 75 15.865625000000065 L 76.315789473593 15.219687499999992 L 77.631578947433 13.513888888888879 L 78.947368421027 12.67777777777777 L 80.26315789462 11.662500000000016 L 81.57894736846 11.764285714285734 L 82.894736842053 11.144444444444481 L 84.210526315893 10.569444444444436 L 85.526315789487 10.116666666666667 L 86.84210526308 9.640625000000007 L 88.15789473692 10.118888888888868 L 89.473684210513 11.970000000000027 L 90.789473684107 11.946875000000006 L 92.105263157947 11.699214285714277 L 93.42105263154 11.528571428571475 L 94.73684210538 12.382055555555525 L 96.052631578973 12.710000000000008 L 97.368421052567 12.147500000000022 L 98.684210526407 11.882499999999965 L 100 11.29999999999999 L 110 11.29999999999999" stroke-linejoin="round" visibility="visible" stroke="rgba(192,192,192,0.0001)" stroke-width="22" class="highcharts-tracker"></path>
+                                                    </g>
+                                                    <g class="highcharts-markers highcharts-series-0 highcharts-area-series  highcharts-tracker" transform="translate(0,0) scale(1 1)"></g>
+                                                </g><text x="50" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:16px;fill:#333333;" y="22"></text><text x="50" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+                                                <g class="highcharts-axis-labels highcharts-xaxis-labels "></g>
+                                                <g class="highcharts-axis-labels highcharts-yaxis-labels "></g>
+                                            </svg></div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
