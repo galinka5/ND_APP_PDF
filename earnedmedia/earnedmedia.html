@@ -155,11 +155,7 @@
             position: relative;
         }
 
-        table div.icon-cell {
-            position: absolute;
-            left: 50px;
-            top: 15px;
-        }
+        table div.icon-cell {}
 
         .icon-cell img {
             width: 100%;
@@ -454,17 +450,17 @@
     <div class="list-view-wrapper">
         <div id="table-placeholder" style="display: block;">
             <div id="trafficSourcesTable_wrapper" class="dataTables_wrapper no-footer">
-                <table id="trafficSourcesTable" class="traffic-sources-table dataTable no-footer" width="100%" role="grid" aria-describedby="trafficSourcesTable_info" style="width: 100%;">
+                <table id="trafficSourcesTable" class="traffic-sources-table dataTable no-footer" width="100%" style="width: 100%;">
                     <thead>
                         <tr role="row">
-                            <th class="icon-cell sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">Screenshot</th>
-                            <th class="date-url-cell sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" style="width:20%">Date</th>
-                            <th class="url-cell sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" style="width:20%">URL &amp; Direct URL</th>
-                            <th class="alexa-cell has-tooltip sorting_asc" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1" aria-sort="ascending">Alexa Traffic<br>(Global)</th>
-                            <th class="moz-da-cell has-tooltip sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">MOZ DA</th>
-                            <th class="total-traffic-cell sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">Total Traffic</th>
-                            <th class="site-categories-cell overlap sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">Site Categories</th>
-                            <th class="organizations-cell has-tooltip sorting" tabindex="0" aria-controls="trafficSourcesTable" rowspan="1" colspan="1">Organization / Sentiment</th>
+                            <th class="icon-cell sorting" tabindex="0" rowspan="1" colspan="1">Screenshot</th>
+                            <th class="date-url-cell sorting" tabindex="0" rowspan="1" colspan="1" style="width:20%">Date</th>
+                            <th class="url-cell sorting" tabindex="0" rowspan="1" colspan="1" style="width:20%">URL &amp; Direct URL</th>
+                            <th class="alexa-cell has-tooltip sorting_asc" tabindex="0" rowspan="1" colspan="1" aria-sort="ascending">Alexa Traffic<br>(Global)</th>
+                            <th class="moz-da-cell has-tooltip sorting" tabindex="0" rowspan="1" colspan="1">MOZ DA</th>
+                            <th class="total-traffic-cell sorting" tabindex="0" rowspan="1" colspan="1">Total Traffic</th>
+                            <th class="site-categories-cell overlap sorting" tabindex="0" rowspan="1" colspan="1">Site Categories</th>
+                            <th class="organizations-cell has-tooltip sorting" tabindex="0" rowspan="1" colspan="1">Organization / Sentiment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -625,7 +621,7 @@
                             <td class=" organizations-cell has-tooltip">
                                 <div class="organizations-cell-div">
                                     <div class="organizations-list">
-                                        <p class="organization-name-cell">sony<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">sony<img src="img/smile_positive.svg"></p>
                                         <p class="organization-name-cell">sony corp.<img src="img/smile_neutral.svg"></p>
                                         <p class="organization-name-cell">jbd inc.<img src="img/smile_neutral.svg"></p>
                                         <p class="organization-name-cell">sharp<img src="img/smile_neutral.svg"></p>
