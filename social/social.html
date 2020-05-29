@@ -6,20 +6,6 @@
     <title>Social</title>
     <style>
         @font-face {
-            font-family: HurmeGeometricSans1-Bold;
-            font-style: normal;
-            font-weight: 700;
-            src: local("HurmeGeometricSans1-Bold"), local("HurmeGeometricSans1-Bold"), url("fonts/Hurme-HurmeGeometricSans1-Bold.otf") format("opentype");
-        }
-
-        @font-face {
-            font-family: HurmeGeometricSans2-Bold;
-            font-style: normal;
-            font-weight: 700;
-            src: local("HurmeGeometricSans2-Bold"), local("HurmeGeometricSans2-Bold"), url("fonts/Hurme-HurmeGeometricSans2-Bold.otf") format("opentype");
-        }
-
-        @font-face {
             font-family: HurmeGeometricSans2;
             font-style: normal;
             font-weight: 700;
@@ -33,16 +19,8 @@
             src: local("HurmeGeometricSans2-Regular"), local("HurmeGeometricSans2-Regular"), url("fonts/Hurme-HurmeGeometricSans2-Regular.otf") format("opentype");
         }
 
-        @font-face {
-            font-family: HurmeGeometricSans1;
-            font-style: normal;
-            font-weight: 400;
-            src: local("HurmeGeometricSans1"), local("HurmeGeometricSans1"), url("fonts/Hurme-HurmeGeometricSans1-Regular.otf") format("opentype");
-        }
-
-
         .title-wrapper {
-            padding: 45px 48px 32px 45px;
+            padding: 60px;
             background-color: #fff;
             border-bottom: 1px solid #f0f4f7;
         }
@@ -97,7 +75,7 @@
             box-shadow: none;
             border: solid 1px #e7e8ec;
             border-radius: 0;
-            padding: 45px;
+            padding: 40px 60px;
             font-family: HurmeGeometricSans2;
             font-size: 32px;
         }
@@ -134,7 +112,7 @@
             line-height: 1.14;
             letter-spacing: .7px;
             color: #485985;
-            padding: 0 27px;
+            padding: 0 50px;
         }
 
         .details-card .details-card-block-left {
@@ -144,14 +122,15 @@
         .details-card .header-title,
         .details-card .header-title-small {
             font-family: HurmeGeometricSans2;
-            font-size: 40px;
+            font-size: 44px;
             font-weight: 600;
             font-stretch: normal;
             font-style: normal;
             line-height: 1.14;
             letter-spacing: .7px;
             color: rgba(72, 89, 133, .7);
-            padding-top: 27px;
+            padding-top: 40px;
+            padding-bottom: 10px;
         }
 
         .details-card .details-card-block-left .header-data {
@@ -224,10 +203,6 @@
             text-align: left;
             letter-spacing: normal;
             color: #13224b;
-        }
-
-        .details-card-block.separated {
-            border-top: solid 1px #e0e0e0;
         }
 
         .details-card-block.separated {
@@ -340,9 +315,6 @@
         .details-card-table td {
             border-bottom: 1px solid rgba(11, 21, 39, .12);
             vertical-align: top;
-        }
-
-        .details-card-table td {
             font-family: HurmeGeometricSans2;
             font-size: 34px;
             font-weight: normal;
@@ -406,15 +378,8 @@
                             <div class="header-title has-tooltip">Facebook Shares</div>
                             <div class="header-data">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 32 32">
-                                    <defs>
-                                        <style>
-                                            .cls-10 {
-                                                fill: #4267b2
-                                            }
-
-                                        </style>
-                                    </defs>
-                                    <path id="facebook" d="M16 0a16 16 0 1 0 16 16A16.018 16.018 0 0 0 16 0zm3.979 16.563h-2.6v9.278h-3.861v-9.278h-1.833v-3.279h1.834v-2.12a3.617 3.617 0 0 1 3.893-3.893l2.858.011v3.184h-2.076a.786.786 0 0 0-.818.893v1.933h2.939z" class="cls-10" />
+                                    <defs></defs>
+                                    <path id="facebook" d="M16 0a16 16 0 1 0 16 16A16.018 16.018 0 0 0 16 0zm3.979 16.563h-2.6v9.278h-3.861v-9.278h-1.833v-3.279h1.834v-2.12a3.617 3.617 0 0 1 3.893-3.893l2.858.011v3.184h-2.076a.786.786 0 0 0-.818.893v1.933h2.939z" style="fill: #4267b2" />
                                 </svg>
 
                                 <span class="big-value" id="fbShares">180</span>
@@ -512,10 +477,6 @@
                             <div class="header-title"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 20 20" style="vertical-align:middle">
                                     <defs>
                                         <style>
-                                            .cls-11 {
-                                                fill: #4267b2
-                                            }
-
                                             .cls-21 {
                                                 fill: none;
                                                 stroke: #fff;
@@ -526,7 +487,7 @@
                                         </style>
                                     </defs>
                                     <g id="Group_6740" data-name="Group 6740" transform="translate(-5072.443 -15567.443)">
-                                        <circle id="Ellipse_628" cx="10" cy="10" r="10" class="cls-11" data-name="Ellipse 628" transform="translate(5072.443 15567.443)" />
+                                        <circle id="Ellipse_628" cx="10" cy="10" r="10" style="fill: #4267b2" data-name="Ellipse 628" transform="translate(5072.443 15567.443)" />
                                         <path id="thumbs-up_1_" d="M7.59 5.261V3.4A1.4 1.4 0 0 0 6.192 2L4.329 6.192v5.124h5.255a.932.932 0 0 0 .932-.792l.643-4.192a.932.932 0 0 0-.932-1.071zm-3.261 6.055h-1.4A.932.932 0 0 1 2 10.385V7.124a.932.932 0 0 1 .932-.932h1.4" class="cls-21" data-name="thumbs-up (1)" transform="translate(5075.657 15570.043)" />
                                     </g>
                                 </svg>
@@ -828,25 +789,14 @@
                             <div class="header-title has-tooltip">Retweets (Shares)</div>
                             <div class="header-data">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 20.006 20.006">
-                                    <defs>
-                                        <style>
-                                            .cls-1tw {
-                                                fill: #5fa8dd
-                                            }
-
-                                            .cls-2tw {
-                                                fill: #fff
-                                            }
-
-                                        </style>
-                                    </defs>
+                                    <defs></defs>
                                     <g id="Group_6607" data-name="Group 6607" transform="translate(-532 -254.4)">
                                         <g id="_" data-name="+" transform="translate(532 254.4)">
-                                            <path id="Path_2544" d="M10 0A10 10 0 1 1 0 10 10 10 0 0 1 10 0z" class="cls-1tw" data-name="Path 2544" />
+                                            <path id="Path_2544" d="M10 0A10 10 0 1 1 0 10 10 10 0 0 1 10 0z" style="fill: #5fa8dd" data-name="Path 2544" />
                                         </g>
                                         <g id="Group_6606" data-name="Group 6606" transform="translate(536.891 260.146)">
                                             <g id="Group_6605" data-name="Group 6605">
-                                                <path id="Path_2545" d="M-6.735-.627a4.15 4.15 0 0 1-1.214.34 2.153 2.153 0 0 0 .929-1.194 4.16 4.16 0 0 1-1.342.523A2.089 2.089 0 0 0-9.9-1.639 2.136 2.136 0 0 0-12.017.52a2.16 2.16 0 0 0 .054.492 5.959 5.959 0 0 1-4.357-2.256 2.2 2.2 0 0 0-.285 1.086 2.172 2.172 0 0 0 .94 1.8 2.081 2.081 0 0 1-.958-.269V1.4a2.149 2.149 0 0 0 1.7 2.117 2.021 2.021 0 0 1-.558.076 2.048 2.048 0 0 1-.4-.038 2.118 2.118 0 0 0 1.974 1.5 4.182 4.182 0 0 1-2.624.925 4.231 4.231 0 0 1-.5-.03 5.9 5.9 0 0 0 3.239.97A6.042 6.042 0 0 0-7.783.771c0-.094 0-.188-.006-.279A4.353 4.353 0 0 0-6.735-.627" class="cls-2tw" data-name="Path 2545" transform="translate(17.037 1.639)" />
+                                                <path id="Path_2545" d="M-6.735-.627a4.15 4.15 0 0 1-1.214.34 2.153 2.153 0 0 0 .929-1.194 4.16 4.16 0 0 1-1.342.523A2.089 2.089 0 0 0-9.9-1.639 2.136 2.136 0 0 0-12.017.52a2.16 2.16 0 0 0 .054.492 5.959 5.959 0 0 1-4.357-2.256 2.2 2.2 0 0 0-.285 1.086 2.172 2.172 0 0 0 .94 1.8 2.081 2.081 0 0 1-.958-.269V1.4a2.149 2.149 0 0 0 1.7 2.117 2.021 2.021 0 0 1-.558.076 2.048 2.048 0 0 1-.4-.038 2.118 2.118 0 0 0 1.974 1.5 4.182 4.182 0 0 1-2.624.925 4.231 4.231 0 0 1-.5-.03 5.9 5.9 0 0 0 3.239.97A6.042 6.042 0 0 0-7.783.771c0-.094 0-.188-.006-.279A4.353 4.353 0 0 0-6.735-.627" style="fill: #fff" data-name="Path 2545" transform="translate(17.037 1.639)" />
                                             </g>
                                         </g>
                                     </g>
@@ -1105,26 +1055,17 @@
                             <div class="change-value-black" data-change-value="1.2">
                                 <div class="positive">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
-                                        <defs>
-                                            <style>
-                                                .cls-1 {
-                                                    fill: #ed3424
-                                                }
-
-                                            </style>
-                                        </defs>
-                                        <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                        <defs></defs>
+                                        <path id="Polygon_546" d="M7.5 0L0 8h15z" style="fill: #ed3424" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
                                     </svg>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
                                         <defs>
                                             <style>
-                                                .cls-2 {
-                                                    fill: #5bbc2e
-                                                }
+                                                .cls-2 {}
 
                                             </style>
                                         </defs>
-                                        <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                        <path id="Polygon_546" d="M17.5 18.664L0 0h35z" style="fill: #5bbc2e" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
                                     </svg>
                                     <span>+1.2%</span>
                                 </div>
@@ -1147,14 +1088,7 @@
                                         <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
                                     </svg>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
-                                        <defs>
-                                            <style>
-                                                .cls-2 {
-                                                    fill: #5bbc2e
-                                                }
-
-                                            </style>
-                                        </defs>
+                                        <defs></defs>
                                         <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
                                     </svg>
                                     <span>-0.2%</span>
@@ -1247,15 +1181,8 @@
                             <div class="header-title has-tooltip">LinkedIn Shares</div>
                             <div class="header-data">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 32 32">
-                                    <defs>
-                                        <style>
-                                            .cls-1li {
-                                                fill: #0073b1
-                                            }
-
-                                        </style>
-                                    </defs>
-                                    <path id="linkedin" d="M18.916 13.726a2.557 2.557 0 0 0-2.323 1.281v-1.1h-2.58c.034.727 0 7.76 0 7.76h2.579v-4.334a1.751 1.751 0 0 1 .084-.63A1.419 1.419 0 0 1 18 15.76c.933 0 1.306.712 1.306 1.756v4.152h2.58v-4.45c0-2.382-1.274-3.491-2.965-3.491zm-2.326 1.309h-.016a.238.238 0 0 0 .016-.026zM10 13.909h2.579v7.76H10zM16 0a16 16 0 1 0 16 16A16.018 16.018 0 0 0 16 0zm8.49 23.237a1.241 1.241 0 0 1-1.263 1.225H8.668a1.245 1.245 0 0 1-1.261-1.225V8.507a1.241 1.241 0 0 1 1.261-1.224h14.553a1.247 1.247 0 0 1 1.263 1.225V23.23zM11.311 10.168a1.344 1.344 0 1 0-.041 2.681h.017a1.345 1.345 0 1 0 .017-2.681z" class="cls-1li" />
+                                    <defs></defs>
+                                    <path id="linkedin" d="M18.916 13.726a2.557 2.557 0 0 0-2.323 1.281v-1.1h-2.58c.034.727 0 7.76 0 7.76h2.579v-4.334a1.751 1.751 0 0 1 .084-.63A1.419 1.419 0 0 1 18 15.76c.933 0 1.306.712 1.306 1.756v4.152h2.58v-4.45c0-2.382-1.274-3.491-2.965-3.491zm-2.326 1.309h-.016a.238.238 0 0 0 .016-.026zM10 13.909h2.579v7.76H10zM16 0a16 16 0 1 0 16 16A16.018 16.018 0 0 0 16 0zm8.49 23.237a1.241 1.241 0 0 1-1.263 1.225H8.668a1.245 1.245 0 0 1-1.261-1.225V8.507a1.241 1.241 0 0 1 1.261-1.224h14.553a1.247 1.247 0 0 1 1.263 1.225V23.23zM11.311 10.168a1.344 1.344 0 1 0-.041 2.681h.017a1.345 1.345 0 1 0 .017-2.681z" style="fill:#0073b1" />
                                 </svg>
 
                                 <span class="big-value" id="liShares">231</span>
@@ -1669,30 +1596,33 @@
                         </svg>
 
                         <span class="followers-number small-value">124</span>
-                        <div class="positive" style="display: inline">
+                        <div class="positive" style="display: inline; margin-left: 10px;margin-right: 60px;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
-                                <defs>
-                                    <style>
-                                        .cls-1 {
-                                            fill: #ed3424
-                                        }
-
-                                    </style>
-                                </defs>
-                                <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                <defs></defs>
+                                <path id="Polygon_546" d="M7.5 0L0 8h15z" style="fill: #ed3424" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
                             </svg>
                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
-                                <defs>
-                                    <style>
-                                        .cls-2 {
-                                            fill: #5bbc2e
-                                        }
-
-                                    </style>
-                                </defs>
-                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                <defs></defs>
+                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" style="fill: #5bbc2e" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
                             </svg>
                         </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 12.14 12.14">
+                            <defs>
+                                <style>
+                                    .cls-1ms {
+                                        fill: none;
+                                        stroke: #485985;
+                                        stroke-linecap: round;
+                                        stroke-linejoin: round;
+                                        stroke-width: 2px;
+                                        opacity: .6
+                                    }
+
+                                </style>
+                            </defs>
+                            <path id="message-square" d="M13.14 9.76a1.127 1.127 0 0 1-1.127 1.127h-6.76L3 13.14V4.127A1.127 1.127 0 0 1 4.127 3h7.886a1.127 1.127 0 0 1 1.127 1.127z" class="cls-1ms" transform="translate(-2 -2)" />
+                        </svg>
+
                         <span class="comments-number small-value">124</span>
                     </div>
                 </div>
@@ -1701,7 +1631,12 @@
                         <div class="details-card-block-left">
                             <div class="header-title">Reddit Mentions</div>
                             <div class="header-data">
-                                <img src="/images/reddit-h.svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="Reddit_logo_orange" width="88" height="88" viewBox="0 0 32.002 32.002">
+                                    <defs></defs>
+                                    <path id="Path_2541" d="M16 32A16 16 0 0 1 0 16 16 16 0 0 1 16 0a16 16 0 0 1 16 16 16 16 0 0 1-16 16z" style="fill: #ff4500" data-name="Path 2541" />
+                                    <path id="Fill-3" d="M181.324 210.9a1.667 1.667 0 1 1 1.667-1.667 1.67 1.67 0 0 1-1.667 1.667m.294 2.736c-1.139 1.136-3.319 1.226-3.959 1.226s-2.823-.09-3.959-1.226a.432.432 0 0 1 .611-.611 6.245 6.245 0 0 0 6.695 0 .431.431 0 0 1 .611 0 .437.437 0 0 1 0 .611m-9.3-4.4a1.667 1.667 0 1 1 1.667 1.667 1.67 1.67 0 0 1-1.667-1.667m16-1.667a2.331 2.331 0 0 0-3.952-1.677 11.418 11.418 0 0 0-6.24-1.981l1.062-5 3.472.739a1.668 1.668 0 1 0 .17-.816l-3.879-.826a.416.416 0 0 0-.314.058.411.411 0 0 0-.179.262l-1.165 5.488a.449.449 0 0 0 0 .093 11.441 11.441 0 0 0-6.352 1.978 2.332 2.332 0 1 0-2.567 3.811 4.684 4.684 0 0 0-.054.707c0 3.591 4.179 6.5 9.335 6.5s9.335-2.909 9.335-6.5a4.635 4.635 0 0 0-.054-.7 2.343 2.343 0 0 0 1.382-2.135" style="fill:#fff" transform="translate(-161.656 -191.567)" />
+                                </svg>
+
                                 <span class="big-value" id="reShares">24</span>
                                 <span class="change-value" id="reSharesChange" data-change-value="3.27" style="color: rgb(91, 188, 46);">+3.27%</span>
                                 <div class="logged-off-str" data-social-account-type="6"><span class="log-in-bold">Log In</span> to view Details</div>
@@ -1710,6 +1645,22 @@
                         <div class="details-card-block-right">
                             <div class="header-title">Comments</div>
                             <div class="header-data">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 12.14 12.14">
+                                    <defs>
+                                        <style>
+                                            .cls-1ms {
+                                                fill: none;
+                                                stroke: #485985;
+                                                stroke-linecap: round;
+                                                stroke-linejoin: round;
+                                                stroke-width: 2px;
+                                                opacity: .6
+                                            }
+
+                                        </style>
+                                    </defs>
+                                    <path id="message-square" d="M13.14 9.76a1.127 1.127 0 0 1-1.127 1.127h-6.76L3 13.14V4.127A1.127 1.127 0 0 1 4.127 3h7.886a1.127 1.127 0 0 1 1.127 1.127z" class="cls-1ms" transform="translate(-2 -2)" />
+                                </svg>
                                 <span class="comments-number small-value" id="reComments">222</span>
                             </div>
                         </div>
