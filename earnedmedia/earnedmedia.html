@@ -6,20 +6,6 @@
     <title>Earned Media</title>
     <style>
         @font-face {
-            font-family: HurmeGeometricSans1-Bold;
-            font-style: normal;
-            font-weight: 700;
-            src: local("HurmeGeometricSans1-Bold"), local("HurmeGeometricSans1-Bold"), url("fonts/Hurme-HurmeGeometricSans1-Bold.otf") format("opentype");
-        }
-
-        @font-face {
-            font-family: HurmeGeometricSans2-Bold;
-            font-style: normal;
-            font-weight: 700;
-            src: local("HurmeGeometricSans2-Bold"), local("HurmeGeometricSans2-Bold"), url("fonts/Hurme-HurmeGeometricSans2-Bold.otf") format("opentype");
-        }
-
-        @font-face {
             font-family: HurmeGeometricSans2;
             font-style: normal;
             font-weight: 700;
@@ -32,14 +18,6 @@
             font-weight: 300;
             src: local("HurmeGeometricSans2-Regular"), local("HurmeGeometricSans2-Regular"), url("fonts/Hurme-HurmeGeometricSans2-Regular.otf") format("opentype");
         }
-
-        @font-face {
-            font-family: HurmeGeometricSans1;
-            font-style: normal;
-            font-weight: 400;
-            src: local("HurmeGeometricSans1"), local("HurmeGeometricSans1"), url("fonts/Hurme-HurmeGeometricSans1-Regular.otf") format("opentype");
-        }
-
 
         .list-view-wrapper {
             display: block;
@@ -330,11 +308,8 @@
             height: 12px;
         }
 
-        .alexa-cell-change .positive svg.negative-trend {
-            display: none;
-        }
-
-        .alexa-cell-change .negative svg.positive-trend {
+        .positive svg.negative-trend,
+        .negative svg.positive-trend {
             display: none;
         }
 
@@ -434,6 +409,55 @@
             color: #13224b;
         }
 
+        .icon-type-cls-1 {
+            fill: #6173a0;
+        }
+
+        .icon-type-cls-2 {
+            fill: #fff;
+            font-size: 10px;
+            font-family: HurmeGeometricSans2, &apos;
+            font-weight: 700;
+            letter-spacing: .07em
+        }
+
+        .site-type.site-type-N .B-icon,
+        .site-type.site-type-N .D-icon,
+        .site-type.site-type-B .N-icon,
+        .site-type.site-type-B .D-icon,
+        .site-type.site-type-D .B-icon,
+        .site-type.site-type-D .N-icon {
+            display: none;
+        }
+
+        .s-negative svg,
+        .s-neutral svg,
+        .s-positive svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .s-neutral circle {
+            stroke: #a0acb0;
+        }
+
+        .s-negative path.ssm-2,
+        .s-negative path.ssm-3,
+        .s-neutral path.ssm-1,
+        .s-neutral path.ssm-3,
+        .s-positive path.ssm-1,
+        .s-positive path.ssm-2 {
+            display: none;
+        }
+
+        .s-negative circle {
+            stroke: #ed3424;
+        }
+
+        .s-positive circle {
+            stroke: #5bbc2e;
+        }
+
     </style>
 </head>
 
@@ -456,7 +480,7 @@
                             <th class="icon-cell sorting" tabindex="0" rowspan="1" colspan="1">Screenshot</th>
                             <th class="date-url-cell sorting" tabindex="0" rowspan="1" colspan="1" style="width:20%">Date</th>
                             <th class="url-cell sorting" tabindex="0" rowspan="1" colspan="1" style="width:20%">URL &amp; Direct URL</th>
-                            <th class="alexa-cell has-tooltip sorting_asc" tabindex="0" rowspan="1" colspan="1" aria-sort="ascending">Alexa Traffic<br>(Global)</th>
+                            <th class="alexa-cell has-tooltip sorting_asc" tabindex="0" rowspan="1" colspan="1">Alexa Traffic<br>(Global)</th>
                             <th class="moz-da-cell has-tooltip sorting" tabindex="0" rowspan="1" colspan="1">MOZ DA</th>
                             <th class="total-traffic-cell sorting" tabindex="0" rowspan="1" colspan="1">Total Traffic</th>
                             <th class="site-categories-cell overlap sorting" tabindex="0" rowspan="1" colspan="1">Site Categories</th>
@@ -473,7 +497,29 @@
                                 <div class="date-url-cell">
                                     <div class="date-url-cell-top get-white">Apple to reopen about 100 U.S. stores, most with curbside pickup</div>
                                     <div class="type-date">
-                                        <div class="site-type"><img class="site-type" src="img/N-icon.svg"></div>
+                                        <div class="site-type site-type-N">
+                                            <svg xmlns="http://www.w3.org/2000/svg" id="Group_6152" width="24" height="24" data-name="Group 6152" viewBox="0 0 16.647 17" class="N-icon">
+                                                <defs></defs>
+                                                <rect id="Rectangle_2036" width="16.647" height="17" class="icon-type-cls-1" data-name="Rectangle 2036" rx="2" />
+                                                <text id="N" class="icon-type-cls-2" transform="translate(8.478 12)">
+                                                    <tspan x="-3.78" y="0">N</tspan>
+                                                </text>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" id="Group_6152" width="24" height="24" data-name="Group 6152" viewBox="0 0 16.647 17" class="D-icon">
+                                                <defs></defs>
+                                                <rect id="Rectangle_2036" width="16.647" height="17" class="icon-type-cls-1" data-name="Rectangle 2036" rx="2" />
+                                                <text id="d" class="icon-type-cls-2" transform="translate(8.478 12)">
+                                                    <tspan x="-3.69" y="0">D</tspan>
+                                                </text>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" id="Group_6152" width="24" height="24" data-name="Group 6152" viewBox="0 0 16.647 17" class="B-icon">
+                                                <defs></defs>
+                                                <rect id="Rectangle_2036" width="16.647" height="17" class="icon-type-cls-1" data-name="Rectangle 2036" rx="2" />
+                                                <text id="B" class="icon-type-cls-2" transform="translate(8.478 12)">
+                                                    <tspan x="-3.14" y="0">B</tspan>
+                                                </text>
+                                            </svg>
+                                        </div>
                                         <div class="date-url-cell-value get-white">01:06 PM ET 05/26/20</div>
                                     </div>
                                 </div>
@@ -492,26 +538,12 @@
                                     <div class="alexa-cell-change  get-white">
                                         <div class="negative">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
-                                                <defs>
-                                                    <style>
-                                                        .cls-1 {
-                                                            fill: #ed3424
-                                                        }
-
-                                                    </style>
-                                                </defs>
-                                                <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                                <defs></defs>
+                                                <path id="Polygon_546" d="M7.5 0L0 8h15z" style="fill: #ed3424" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
                                             </svg>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
-                                                <defs>
-                                                    <style>
-                                                        .cls-2 {
-                                                            fill: #5bbc2e
-                                                        }
-
-                                                    </style>
-                                                </defs>
-                                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                                <defs></defs>
+                                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" style="fill: #5bbc2e" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
                                             </svg>
                                             <span>22</span>
                                         </div>
@@ -530,7 +562,19 @@
                             <td class="total-traffic-cell">
                                 <div class="traffic-cell">
                                     <div class="traffic-cell-value get-white"><span class="hit-area">0</span></div>
-                                    <div class="traffic-cell-change  get-white"><img width="18" src="img/positive-trend.svg"> 0</div>
+                                    <div class="traffic-cell-change  get-white">
+                                        <div class="negative">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                                <defs></defs>
+                                                <path id="Polygon_546" d="M7.5 0L0 8h15z" style="fill: #ed3424" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                                <defs></defs>
+                                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" style="fill: #5bbc2e" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                            </svg>
+                                            <span>0</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </td>
                             <td class="site-categories-cell overlap">
@@ -539,9 +583,44 @@
                             <td class=" organizations-cell has-tooltip">
                                 <div class="organizations-cell-div">
                                     <div class="organizations-list">
-                                        <p class="organization-name-cell">apple inc.<img src="img/smile_negative.svg"></p>
-                                        <p class="organization-name-cell">apple<img src="img/smile_negative.svg"></p>
-                                        <p class="organization-name-cell">apple inc<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">apple inc.
+                                            <span class="s-negative">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span>
+                                        </p>
+                                        <p class="organization-name-cell">apple <span class="s-negative">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">apple inc <span class="s-neutral">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
                                     </div>
                                 </div>
                             </td>
@@ -555,7 +634,29 @@
                                 <div class="date-url-cell">
                                     <div class="date-url-cell-top get-white">Micro-LED Market Worth $18,835 Million by 2026 - Exclusive Report by MarketsandMarketsâ„¢</div>
                                     <div class="type-date">
-                                        <div class="site-type"><img class="site-type" src="img/D-icon.svg"></div>
+                                        <div class="site-type site-type-D">
+                                            <svg xmlns="http://www.w3.org/2000/svg" id="Group_6152" width="24" height="24" data-name="Group 6152" viewBox="0 0 16.647 17" class="N-icon">
+                                                <defs></defs>
+                                                <rect id="Rectangle_2036" width="16.647" height="17" class="icon-type-cls-1" data-name="Rectangle 2036" rx="2" />
+                                                <text id="N" class="icon-type-cls-2" transform="translate(8.478 12)">
+                                                    <tspan x="-3.78" y="0">N</tspan>
+                                                </text>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" id="Group_6152" width="24" height="24" data-name="Group 6152" viewBox="0 0 16.647 17" class="D-icon">
+                                                <defs></defs>
+                                                <rect id="Rectangle_2036" width="16.647" height="17" class="icon-type-cls-1" data-name="Rectangle 2036" rx="2" />
+                                                <text id="d" class="icon-type-cls-2" transform="translate(8.478 12)">
+                                                    <tspan x="-3.69" y="0">D</tspan>
+                                                </text>
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" id="Group_6152" width="24" height="24" data-name="Group 6152" viewBox="0 0 16.647 17" class="B-icon">
+                                                <defs></defs>
+                                                <rect id="Rectangle_2036" width="16.647" height="17" class="icon-type-cls-1" data-name="Rectangle 2036" rx="2" />
+                                                <text id="B" class="icon-type-cls-2" transform="translate(8.478 12)">
+                                                    <tspan x="-3.14" y="0">B</tspan>
+                                                </text>
+                                            </svg>
+                                        </div>
                                         <div class="date-url-cell-value get-white">09:30 AM ET 05/27/20</div>
                                     </div>
                                 </div>
@@ -574,28 +675,14 @@
                                     <div class="alexa-cell-change  get-white">
                                         <div class="positive">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
-                                                <defs>
-                                                    <style>
-                                                        .cls-1 {
-                                                            fill: #ed3424
-                                                        }
-
-                                                    </style>
-                                                </defs>
-                                                <path id="Polygon_546" d="M7.5 0L0 8h15z" class="cls-1" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                                <defs></defs>
+                                                <path id="Polygon_546" d="M7.5 0L0 8h15z" style="fill: #ed3424" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
                                             </svg>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
-                                                <defs>
-                                                    <style>
-                                                        .cls-2 {
-                                                            fill: #5bbc2e
-                                                        }
-
-                                                    </style>
-                                                </defs>
-                                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" class="cls-2" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                                <defs></defs>
+                                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" style="fill: #5bbc2e" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
                                             </svg>
-                                            <span>22</span>
+                                            <span>24</span>
                                         </div>
                                     </div>
                                 </div>
@@ -612,7 +699,19 @@
                             <td class=" total-traffic-cell">
                                 <div class="traffic-cell">
                                     <div class="traffic-cell-value get-white"><span class="hit-area">0</span></div>
-                                    <div class="traffic-cell-change  get-white"><img width="18" src="img/positive-trend.svg"> 0</div>
+                                    <div class="traffic-cell-change  get-white">
+                                        <div class="positive">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" class="negative-trend">
+                                                <defs></defs>
+                                                <path id="Polygon_546" d="M7.5 0L0 8h15z" style="fill: #ed3424" data-name="Polygon 546" transform="rotate(180 7.5 4)" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 35 18.664" class=positive-trend>
+                                                <defs></defs>
+                                                <path id="Polygon_546" d="M17.5 18.664L0 0h35z" style="fill: #5bbc2e" data-name="Polygon 546" transform="rotate(180 17.5 9.332)" />
+                                            </svg>
+                                            <span>0</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </td>
                             <td class=" site-categories-cell overlap">
@@ -621,20 +720,174 @@
                             <td class=" organizations-cell has-tooltip">
                                 <div class="organizations-cell-div">
                                     <div class="organizations-list">
-                                        <p class="organization-name-cell">sony<img src="img/smile_positive.svg"></p>
-                                        <p class="organization-name-cell">sony corp.<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">jbd inc.<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">sharp<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">x-celeprint ltd.<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">apple inc.<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">glo ab<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">apac<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">samsung electronics<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">samsung electronics co., ltd.<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">cagr<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">lg display<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">epistar corporation<img src="img/smile_neutral.svg"></p>
-                                        <p class="organization-name-cell">panasonic<img src="img/smile_neutral.svg"></p>
+                                        <p class="organization-name-cell">sony <span class="s-positive">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">sony corp. <span class="s-negative">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">jbd inc. <span class="s-negative">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">sharp <span class="s-negative">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">x-celeprint ltd. <span class="s-negative">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">apple inc. <span class="s-neutral">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">glo ab <span class="s-neutral">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">apac <span class="s-neutral">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">samsung electronics <span class="s-neutral">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">samsung electronics co., ltd. <span class="s-neutral">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">cagr <span class="s-neutral">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">lg display <span class="s-negative">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">epistar corporation <span class="s-neutral">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
+                                        <p class="organization-name-cell">panasonic <span class="s-neutral">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <g id="smile" transform="translate(-1 -1)">
+                                                        <circle id="Ellipse_631" data-name="Ellipse 631" cx="8" cy="8" r="8" transform="translate(2 2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613A4.356,4.356,0,0,1,11.227,14a4.356,4.356,0,0,1,3.227,1.613" transform="translate(-1.159 -2.319)" fill="none" stroke="#ed3424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-1" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,15.613h6.454" transform="translate(-1.159 -3.319)" fill="none" stroke="#a0acb0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-2" />
+                                                        <path id="Path_2689" data-name="Path 2689" d="M8,14a4.356,4.356,0,0,0,3.227,1.614A4.356,4.356,0,0,0,14.454,14" transform="translate(-1.159 -2.319)" fill="none" stroke="#5bbc2e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="ssm-3" />
+                                                        <circle id="Ellipse_637" data-name="Ellipse 637" cx="1" cy="1" r="1" transform="translate(7 7)" fill="#ed3424" />
+                                                        <circle id="Ellipse_638" data-name="Ellipse 638" cx="1" cy="1" r="1" transform="translate(11 7)" fill="#ed3424" />
+                                                    </g>
+                                                </svg>
+                                            </span></p>
                                     </div>
                                 </div>
                             </td>
